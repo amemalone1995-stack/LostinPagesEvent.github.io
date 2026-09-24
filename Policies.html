@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Policies | Lost In Pages Events</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+
+    
+<style>
+:root{
+    --midnight:#4838DB;
+    --night:#201060;
+    --white:#FFFFFF;
+    --glass:rgba(255,255,255,0.12);
+    --border:rgba(255,255,255,0.35);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter', sans-serif;
+    background:var(--midnight);
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+
+/* STAR LAYERS */
+#stars, #shooting-stars{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* STAR STYLE */
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+/* CONTENT ABOVE STARS */
+header, .container, footer{
+    position: relative;
+    z-index: 1;
+}
+
+header{
+    text-align:center;
+    padding:70px 20px;
+}
+
+h1{
+    font-family:'Cinzel Decorative', cursive;
+    font-size:4rem;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#F8F8FF;
+}
+
+.container{
+    max-width:1000px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+.policy{
+    background:var(--glass);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:25px;
+    margin:25px 0;
+    color:white;
+    position:relative;
+    z-index:3;
+    backdrop-filter:blur(8px);
+    text-align:center;
+}
+
+
+.policy h2{
+    font-family:'Cinzel Decorative', serif;
+    font-size:1.8rem;
+    color:white;
+    margin-bottom:15px;
+}
+
+
+.policy p{
+    color:white;
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+    
+/* Make policy cards clickable */
+.policy-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+.policy-link .policy{
+    transition:transform .25s ease, box-shadow .25s ease;
+    cursor:pointer;
+}
+
+.policy-link:hover .policy{
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+.back{
+    display:inline-block;
+    padding:14px 30px;
+    background:white;
+    color:var(--night);
+    text-decoration:none;
+    border-radius:25px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+
+.back:hover{
+    background:var(--night);
+    color:white;
+}
+
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:white;
+}
+
+      /* NAVIGATION */
+
+nav{
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(255,255,255,0.2);
+
+}
+
+
+.nav-container{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:14px 40px;
+
+}
+
+
+.nav-logo{
+
+    font-family:"Cinzel Decorative", serif;
+
+    color:white;
+
+    font-size:clamp(0.9rem,1.5vw,1.1rem);
+
+    letter-spacing:1px;
+
+    white-space:nowrap;
+
+}
+
+
+
+nav ul{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:26px;
+
+    list-style:none;
+
+}
+
+
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-family:"Cinzel Decorative", serif;
+
+    font-size:clamp(0.9rem,1.5vw,1.1rem);
+
+    letter-spacing:1px;
+
+    transition:.3s;
+
+}
+
+
+
+nav a:hover{
+
+    opacity:.7;
+
+}
+
+
+
+nav li:last-child a{
+
+    background:white;
+
+    color:var(--night);
+
+    padding:10px 22px;
+
+    border-radius:25px;
+
+    font-weight:bold;
+
+}
+
+
+
+nav li:last-child a:hover{
+
+    background:var(--night);
+
+    color:white;
+
+}
+
+    .policy-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+
+.policy-link .policy{
+    transition:.3s ease;
+}
+
+
+.policy-link:hover .policy{
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+    /* MOBILE */
+
+@media(max-width:600px){
+
+
+    .nav-container{
+
+        flex-direction:column;
+
+        padding:12px 10px;
+
+    }
+
+
+    nav ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        flex-direction: column;
+
+        gap:12px;
+
+        margin-top:12px;
+
+    }
+
+
+    nav a{
+
+        font-size:.85rem;
+
+    }
+
+    h1{
+        font-size:3rem;
+    }
+
+    .policy{
+        padding:20px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+</style>
+
+</head>
+
+
+<nav>
+
+    <div class="nav-container">
+
+        <div class="nav-logo">
+            Lost In Pages Events
+        </div>
+
+
+        <ul>
+
+            <li><a href="https://lostinpagesevents.co.uk/index.html"
+                    target="_blank"
+                   rel="noopener noreferrer">
+                    Home
+            </a>
+            </li>
+        <ul>
+
+            <li>
+                <a href="https://www.eventbrite.co.uk/e/lost-in-pages-brightons-newest-book-event-tickets-1992957687091?utm_experiment=test_share_listing&aff=ebdsshios&sg=f85606848e1d295860e7303a016f1e3bd4de5b39f76db082bb221ff8005ed2113809f6419407b0cc4c11094717f557bc4c7b17e6ae2e0d27d760214a00aef84d4b33c8b72dee2f256543bce8dd98"
+                   target="_blank"
+        rel="noopener noreferrer">
+            Get Tickets
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+    
+<!-- STAR BACKGROUND LAYERS -->
+<div id="stars"></div>
+<div id="shooting-stars"></div>
+
+<header>
+    <h1>Our Policies</h1>
+    <p class="subtitle">Everything you need to know before attending.</p>
+</header>
+
+<div class="container">
+    
+<a href="tickets-attendance.html" class="policy-link">
+    <div class="policy">
+        <h2>Tickets & Attendance</h2>
+        <p>All tickets are non-refundable unless the event is cancelled by us. <p>
+         <p><u>Click here to find out more</u></p>
+    </div>
+</a>
+
+ <a href="accessibility.html" class="policy-link">   
+    <div class="policy">
+        <h2>Accessibility</h2>
+        <p>
+            Accessibility is a Human Right. If our event is not accessible for everyone,
+            it should not be accessible to anyone. All accessibility tickets include a free carer’s pass. <p>
+             <p><u>Click here to find out more</u>
+        </p>
+    </div>
+</a>
+
+     
+
+ <a href="ai.html" class="policy-link">   
+    <div class="policy">
+        <h2>AI</h2>
+        <p>
+            As artists ourselves, we do not believe AI has a place within our industry.
+            Lead with human love. Lead with human creativity. Lead with human soul. Say NO to AI.
+        </p>
+    </div>
+ </a>
+
+    <div class="policy">
+        <h2>Code of Conduct</h2>
+        <p>
+            We want everyone to enjoy a safe, welcoming experience. Harassment, discrimination,
+            bullying or inappropriate behaviour will not be tolerated and may result in removal.
+        </p>
+    </div>
+
+    <div class="policy">
+        <h2>Photography & Social Media</h2>
+        <p>Photography and filming may take place throughout the event for promotional purposes.</p>
+    </div>
+
+    <div class="policy">
+        <h2>Contact</h2>
+        <p>Questions? Contact us at <strong>lostinpagesevents@gmail.com</strong>.</p>
+    </div>
+
+    <a class="back" href="index.html">← Return to Home</a>
+
+</div>
+
+<footer>
+© 2026 Lost In Pages Events
+</footer>
+
+<!-- STAR SCRIPT -->
+<script>
+const starContainer = document.getElementById("stars");
+
+function createStars(count) {
+    for (let i = 0; i < count; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+
+        const size = Math.random() * 2 + 1;
+
+        star.style.width = size + "px";
+        star.style.height = size + "px";
+
+        star.style.top = Math.random() * 100 + "%";
+        star.style.left = Math.random() * 100 + "%";
+
+        star.style.opacity = Math.random();
+
+        starContainer.appendChild(star);
+    }
+}
+
+createStars(180);
+</script>
+
+</body>
+</html>
