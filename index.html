@@ -372,14 +372,35 @@ header {
     position: relative;
 }
 
-/* The moving strip */
+
 .carousel-track {
+    display: flex;
+    width: max-content;
+    align-items: stretch;
+    animation: scrollImages 120s linear infinite;
+    will-change: transform;
+}
+
+@keyframes scrollImages {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+/* The moving strip */
+
+<!--
+    .carousel-track {
     display: flex;
     width: max-content;
     align-items: stretch;
     animation: scrollImages 60s linear infinite;
     will-change: transform;
 }
+-->
 
 /* Each author */
 .author-card {
