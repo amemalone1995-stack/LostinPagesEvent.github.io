@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Policies | Lost In Pages Events</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --midnight:#4838DB;
+    --white:#FFFFFF;
+    --glass:rgba(255,255,255,0.12);
+    --border:rgba(255,255,255,0.35);
+}
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* PAGE */
+
+body{
+    font-family:'Inter', sans-serif;
+    background:var(--midnight);
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+
+/* STAR BACKGROUND */
+
+#stars,
+#shooting-stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+
+.star{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite ease-in-out;
+}
+
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.2;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+}
+
+
+/* CONTENT LAYER */
+
+header,
+.container,
+footer{
+    position:relative;
+    z-index:2;
+}
+
+
+/* HEADER */
+
+header{
+    text-align:center;
+    padding:70px 20px 40px;
+}
+
+
+h1{
+    font-family:'Great Vibes', cursive;
+    font-size:4rem;
+    color:white;
+    margin-bottom:15px;
+}
+
+
+.subtitle{
+    font-size:1.2rem;
+}
+
+
+/* POLICY CONTAINER */
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    padding-bottom:50px;
+}
+
+
+/* POLICY BOXES */
+
+.policy{
+    background:var(--glass);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:25px;
+    margin:25px 0;
+    color:white;
+    position:relative;
+    z-index:3;
+    backdrop-filter:blur(8px);
+}
+
+
+.policy h2{
+    font-family:'Playfair Display', serif;
+    font-size:1.8rem;
+    color:white;
+    margin-bottom:15px;
+}
+
+
+.policy p{
+    color:white;
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+
+.policy strong{
+    color:white;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:white;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    h1{
+        font-size:3rem;
+    }
+
+    .policy{
+        padding:20px;
+    }
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div id="stars"></div>
+<div id="shooting-stars"></div>
 
