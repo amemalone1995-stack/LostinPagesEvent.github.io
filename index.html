@@ -1111,21 +1111,23 @@ footer {
    MOBILE NAVIGATION
 ================================= */
 
-@media (max-width: 768px) {
 
-    nav {
-        position: sticky;
-        top: 0;
-        width: 100%;
-    }
+/* =================================
+   MOBILE DROPDOWN NAVIGATION
+================================= */
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
 
     .nav-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding: 15px 12px;
-        gap: 18px;
+        padding: 15px 15px;
+        gap: 12px;
     }
 
     .nav-logo {
@@ -1135,55 +1137,95 @@ footer {
         white-space: normal;
     }
 
-    nav ul {
+    /* Hamburger button */
+
+    .menu-toggle {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        background: var(--night);
+        color: white;
+
+        border: 1px solid white;
+        border-radius: 25px;
+
+        padding: 10px 25px;
+
+        font-family: "Cinzel Decorative", serif;
+        font-size: 0.9rem;
+        font-weight: bold;
+
+        cursor: pointer;
+    }
+
+    .menu-toggle:hover {
+        background: white;
+        color: var(--night);
+    }
+
+    /* Dropdown menu */
+
+    nav ul {
+        display: none;
+
+        flex-direction: column;
+        align-items: center;
+
         width: 100%;
-        gap: 12px 18px;
-        padding: 0;
+        gap: 0;
+
+        padding: 10px 0;
         margin: 0;
+
+        background: var(--midnight);
+        border-top: 1px solid rgba(255,255,255,0.25);
+
+    }
+
+    /* Show menu when active */
+
+    nav ul.active {
+        display: flex;
     }
 
     nav ul li {
-        list-style: none;
+        width: 100%;
+        text-align: center;
     }
 
     nav ul li a {
-        display: inline-block;
-        font-size: 0.8rem;
-        letter-spacing: 0.5px;
-        padding: 5px 2px;
+        display: block;
+
+        padding: 13px 10px;
+
+        font-size: 0.9rem;
+        letter-spacing: 1px;
     }
 
-    nav li:last-child a {
-        padding: 9px 16px;
-        font-size: 0.8rem;
+    nav ul li a:hover {
+        background: rgba(255,255,255,0.15);
     }
+
+    /* Social icons */
 
     nav li.social-icon a {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
-}
+    /* Tickets button */
 
+    nav li:last-child a {
+        display: inline-block;
 
+        margin: 10px auto;
+        padding: 10px 25px;
 
+        background: white;
+        color: var(--night);
 
-
-    header {
-
-        padding-bottom:100px;
-
-    }
-
-
-    .logo {
-
-        width:100%; 
-
+        border-radius: 25px;
     }
 
 }
@@ -1235,59 +1277,65 @@ footer {
 
 
 <nav>
-
     <div class="nav-container">
 
         <div class="nav-logo">
             Lost In Pages Events
         </div>
 
+        <!-- Mobile menu button -->
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navMenu">
+            <i class="fa-solid fa-bars"></i>
+            <span>Menu</span>
+        </button>
 
-        <ul>
+        <ul id="navMenu">
 
-    <li><a href="#about">About</a></li>
+            <li><a href="#about">About</a></li>
 
-    <li><a href="Guests.html">Guests</a></li>
+            <li><a href="Guests.html">Guests</a></li>
 
-    <li><a href="Policies.html">Policies</a></li>
-            
-    <li><a href="testing.html">NA</a></li>
-            
-    <li><a href="#newsletter">Newsletter</a></li>
+            <li><a href="Policies.html">Policies</a></li>
 
-    <li class="social-icon">
-    <a href="https://instagram.com/lostinpagesevents"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-    </a>
-</li>
+            <li><a href="testing.html">NA</a></li>
 
-<li class="social-icon">
-    <a href="https://tiktok.com/@lostinpagesevent"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="TikTok">
-        <i class="fa-brands fa-tiktok"></i>
-    </a>
-</li>
+            <li><a href="#newsletter">Newsletter</a></li>
 
-    <li>
-        <a href="https://www.eventbrite.co.uk/e/lost-in-pages-brightons-newest-book-event-tickets-1992957687091?utm_experiment=test_share_listing&aff=ebdsshios&sg=f85606848e1d295860e7303a016f1e3bd4de5b39f76db082bb221ff8005ed2113809f6419407b0cc4c11094717f557bc4c7b17e6ae2e0d27d760214a00aef84d4b33c8b72dee2f256543bce8dd98"
-        target="_blank"
-        rel="noopener noreferrer">
-            Get Tickets
-        </a>
-    </li>
-    
-            
+            <li class="social-icon">
+                <a href="https://instagram.com/lostinpagesevents"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </li>
 
-</ul>
+            <li class="social-icon">
+                <a href="https://tiktok.com/@lostinpagesevent"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.eventbrite.co.uk/e/lost-in-pages-brightons-newest-book-event-tickets-1992957687091?utm_experiment=test_share_listing&aff=ebdsshios&sg=f85606848e1d295860e7303a016f1e3bd4de5b39f76db082bb221ff8005ed2113809f6419407b0cc4c11094717f557bc4c7b17e6ae2e0d27d760214a00aef84d4b33c8b72dee2f256543bce8dd98"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Get Tickets
+                </a>
+            </li>
+
+        </ul>
 
     </div>
-
 </nav>
+
 
 
 
@@ -2236,6 +2284,50 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(section => observer.observe(section));
 
+
+// MOBILE DROPDOWN MENU
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", function () {
+
+    const isOpen = navMenu.classList.toggle("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+
+    menuToggle.querySelector("i").className = isOpen
+        ? "fa-solid fa-xmark"
+        : "fa-solid fa-bars";
+
+});
+
+// Close menu when a link is selected
+
+navMenu.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", function () {
+
+        navMenu.classList.remove("active");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+        menuToggle.querySelector("i").className =
+            "fa-solid fa-bars";
+
+    });
+
+});
 
 
 </script>
