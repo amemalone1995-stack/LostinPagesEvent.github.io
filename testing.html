@@ -1,37 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Our Panelled Guests | Lost In Pages Events</title>
+<title>September 25th 2027 | Lost In Pages Events</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
-/* ===============================
-   VARIABLES
-================================ */
-
 :root {
-    --midnight: #15110e;
-    --antique-gold: #c5a46d;
-    --aged-gold: #927044;
-    --parchment: #e6d5b5;
-
-    --burgundy: #54252d;
-    --forest: #263d32;
-    --navy: #252e46;
-    --brown: #493323;
-    --dusty-green: #59644a;
+    --night: #191970;
+    --magic: #ffffff;
+    --text: #f8f8ff;
+    --midnight: #6495ed;
+    --muted: #ffffff;
 }
-
-/* ===============================
-   RESET
-================================ */
 
 * {
     margin: 0;
@@ -39,611 +26,1489 @@
     box-sizing: border-box;
 }
 
-/* ===============================
-   PAGE
-================================ */
-
-   body {
-    font-family: 'Inter', sans-serif;
-    background: #243b70;
-    color: white;
-    min-height: 100vh;
-    overflow-x: hidden;
+html {
+    scroll-behavior: smooth;
 }
 
-/* ===============================
-   STAR BACKGROUND
-================================ */
+body {
+    font-family: "Times New Roman", serif;
+    color: var(--text);
+    overflow-x: hidden;
+    font-weight: 700;
 
-#stars {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7,12,24,0.86),
+            rgba(7,12,24,0.96)
+        ),
+        url("background.jpg") center/cover fixed no-repeat;
+}
+
+/* =================================
+   FLOATING STARS
+================================= */
+
+.stars {
     position: fixed;
     inset: 0;
     pointer-events: none;
+    background: #191970;
+    overflow: hidden;
     z-index: 0;
 }
 
 .star {
     position: absolute;
+    width: 2px;
+    height: 2px;
     background: white;
+    opacity: 0.4;
     border-radius: 50%;
-    animation: twinkle 3s infinite ease-in-out;
+    animation: floatStar linear infinite;
 }
 
-@keyframes twinkle {
-    0%, 100% { opacity: .2; }
-    50% { opacity: 1; }
+@keyframes floatStar {
+    from {
+        transform: translateY(0);
+        opacity: 0.2;
+    }
+
+    to {
+        transform: translateY(-100vh);
+        opacity: 0.8;
+    }
 }
 
-/* ===============================
-   CONTENT
-================================ */
+/* =================================
+   NAVIGATION
+================================= */
 
-header,
-.container,
-footer {
-    position: relative;
-    z-index: 2;
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--midnight);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-/* ===============================
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 40px;
+}
+
+.nav-logo {
+    font-family: "Cinzel Decorative", serif;
+    color: var(--text);
+    font-size: clamp(0.9rem,1.5vw,1.1rem);
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    list-style: none;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-family: "Cinzel Decorative", serif;
+    letter-spacing: 1px;
+    font-size: clamp(0.8rem,1.3vw,1rem);
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--night);
+}
+
+nav li:last-child a {
+    background: white;
+    color: var(--night);
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(255,255,255,0.35);
+}
+
+nav li:last-child a:hover {
+    background: var(--night);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* =================================
    HEADER
-================================ */
+================================= */
 
 header {
     text-align: center;
-    padding: 70px 20px 45px;
+    padding: 20px clamp(20px,5vw,60px) 60px;
+    position: relative;
+    z-index: 1;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(156,199,255,0.18),
+            transparent 60%
+        );
 }
 
-h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 4rem;
-    font-weight: 400;
-    color: var(--parchment);
-    margin-bottom: 15px;
-    text-shadow: 0 3px 15px rgba(0,0,0,.8);
+/* =================================
+   VINTAGE AUTHOR BOOKSHELF
+================================= */
+
+.author-library {
+    width: min(100%, 1250px);
+    margin: 10px auto 55px;
+    padding: 25px 22px 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #51331f,
+            #24140d 50%,
+            #704629
+        );
+
+    border: 9px ridge #a77a43;
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.7),
+        inset 0 0 30px rgba(0,0,0,0.7);
 }
 
-.subtitle {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--antique-gold);
+.library-heading {
+    font-family: "Cinzel Decorative", serif;
+    color: #f5dfae;
+    font-size: clamp(1.2rem,3vw,2rem);
+    text-align: center;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 8px #000;
 }
 
-/* ===============================
-   BOOKSHELF
-================================ */
-
-.container {
-    width: 100%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+.library-subheading {
+    color: #e6cda0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: italic;
 }
+
+/* The actual shelves */
 
 .bookshelf {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: center;
-    gap: 28px;
 
-    padding: 40px 15px 20px;
+    gap: 0 13px;
 
-    border-bottom: 12px solid #806044;
-
-    box-shadow:
-        0 12px 15px rgba(0,0,0,.2);
-
-    background: transparent;
-}
-
-
-/* ===============================
-   BOOK STRUCTURE
-================================ */
-
-.book {
-    --book-colour: #54252d;
-    --book-light: #79434a;
-    --book-dark: #291419;
-
-    position: relative;
-
-    width: var(--book-width, 55px);
-    height: var(--book-height, 280px);
-
-    transform-style: preserve-3d;
-
-    perspective: 1000px;
-
-    transition:
-        transform .7s ease,
-        filter .7s ease;
-
-    cursor: pointer;
-
-    filter: drop-shadow(5px 8px 5px rgba(0,0,0,.5));
-}
-
-/* Individual leather colours */
-
-.book.burgundy {
-    --book-colour: #54252d;
-    --book-light: #874b50;
-    --book-dark: #291116;
-}
-
-.book.forest {
-    --book-colour: #263d32;
-    --book-light: #496b53;
-    --book-dark: #14251c;
-}
-
-.book.navy {
-    --book-colour: #252e46;
-    --book-light: #465777;
-    --book-dark: #11182b;
-}
-
-.book.brown {
-    --book-colour: #493323;
-    --book-light: #795b3c;
-    --book-dark: #25180f;
-}
-
-.book.green {
-    --book-colour: #59644a;
-    --book-light: #83916a;
-    --book-dark: #303a27;
-}
-
-/* ===============================
-   BOOK SPINE
-================================ */
-
-.spine {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-
-    border-radius: 5px 3px 3px 5px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.65) 0%,
-            rgba(255,255,255,.08) 8%,
-            transparent 18%,
-            rgba(255,255,255,.06) 45%,
-            transparent 70%,
-            rgba(0,0,0,.35) 100%
-        ),
-        linear-gradient(
-            180deg,
-            var(--book-light),
-            var(--book-colour) 35%,
-            var(--book-dark) 65%,
-            var(--book-colour)
-        );
-
-    border: 1px solid rgba(197,164,109,.65);
-
-    box-shadow:
-        inset 3px 0 5px rgba(255,255,255,.12),
-        inset -3px 0 5px rgba(0,0,0,.5),
-        inset 0 0 12px rgba(0,0,0,.3),
-        3px 0 5px rgba(0,0,0,.5);
-}
-
-/* Raised spine bands */
-
-.spine::before {
-    content: "";
-
-    position: absolute;
-
-    top: 12px;
-    bottom: 12px;
-    left: 5px;
-    right: 5px;
-
-    border-left: 2px solid rgba(197,164,109,.8);
-    border-right: 2px solid rgba(197,164,109,.8);
-
-    box-shadow:
-        inset 3px 0 3px rgba(0,0,0,.25),
-        inset -3px 0 3px rgba(0,0,0,.25);
-
-    pointer-events: none;
-}
-
-/* Decorative gold bands */
-
-.spine::after {
-    content: "";
-
-    position: absolute;
-
-    left: 3px;
-    right: 3px;
-
-    top: 12px;
-    height: 6px;
-
-    border-top: 1px solid var(--antique-gold);
-    border-bottom: 1px solid var(--antique-gold);
-
-    box-shadow:
-        0 6px 0 -2px rgba(197,164,109,.7),
-        0 230px 0 -1px rgba(197,164,109,.6),
-        0 236px 0 -1px rgba(197,164,109,.7);
-
-    pointer-events: none;
-}
-
-/* ===============================
-   SPINE LETTERING
-================================ */
-
-.spine-title {
-    position: absolute;
-
-    top: 38px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    writing-mode: vertical-rl;
-
-    text-orientation: mixed;
-
-    font-family: 'Playfair Display', serif;
-
-    font-size: 12px;
-    font-weight: 600;
-
-    letter-spacing: 1.5px;
-
-    text-transform: uppercase;
-
-    color: #e2c58c;
-
-    text-shadow:
-        1px 1px 1px #21150b,
-        0 0 5px rgba(0,0,0,.8);
-
-    white-space: nowrap;
-}
-
-.spine-author {
-    position: absolute;
-
-    bottom: 17px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    font-family: 'Playfair Display', serif;
-
-    font-size: 10px;
-
-    color: var(--parchment);
-
-    letter-spacing: 2px;
-}
-
-/* ===============================
-   TOP OF BOOK - AGED PAPER
-================================ */
-
-.book-top {
-    position: absolute;
-
-    top: -7px;
-    left: 4px;
-
-    width: calc(100% - 8px);
-    height: 14px;
-
-    transform: rotateX(90deg);
-    transform-origin: bottom;
+    padding: 15px 10px 0;
 
     background:
         repeating-linear-gradient(
-            0deg,
-            rgba(100,75,45,.22) 0px,
-            transparent 1px,
-            transparent 3px
-        ),
-        linear-gradient(
-            90deg,
-            #a88b60,
-            #f0dfbd 15%,
-            #e6d5b5 75%,
-            #9b805b
+            to bottom,
+            transparent 0,
+            transparent 270px,
+            #bd8950 270px,
+            #80512d 281px,
+            #3d2415 289px,
+            transparent 295px
         );
-
-    border-top: 1px solid #bda77f;
-
-    box-shadow:
-        inset 0 2px 3px rgba(255,255,255,.5),
-        inset 0 -2px 3px rgba(0,0,0,.25);
 }
 
-/* ===============================
-   BOOK COVER
-================================ */
+/* Individual book spine */
 
-.book-cover {
-    position: absolute;
+.author-book {
+    position: relative;
 
-    width: 185px;
-    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    left: 100%;
-    top: 0;
+    width: 72px;
+    height: 245px;
 
-    transform-origin: left center;
+    margin-bottom: 45px;
 
-    transform: rotateY(90deg);
+    text-decoration: none;
+    color: #f5dfae;
 
-    border: 4px solid #8e7044;
+    border-radius: 4px 7px 7px 4px;
 
-    border-radius: 3px;
-
-    background-size: cover;
-    background-position: center;
+    border-left: 5px solid rgba(0,0,0,0.4);
+    border-right: 2px solid rgba(255,255,255,0.12);
 
     box-shadow:
-        inset 0 0 15px rgba(0,0,0,.6),
-        inset 0 0 3px rgba(255,255,255,.4),
-        4px 0 8px rgba(0,0,0,.5);
+        4px 5px 8px rgba(0,0,0,0.65),
+        inset 3px 0 5px rgba(255,255,255,0.15),
+        inset -4px 0 5px rgba(0,0,0,0.3);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    overflow: hidden;
 }
 
-/* ===============================
-   BOOK INFORMATION
-================================ */
+/* Book spine colours */
 
-.book-info {
+.author-book:nth-child(6n+1) {
+    background: linear-gradient(90deg,#3d111b,#812b38,#4b1721);
+}
+
+.author-book:nth-child(6n+2) {
+    background: linear-gradient(90deg,#153b2b,#286348,#173b2b);
+}
+
+.author-book:nth-child(6n+3) {
+    background: linear-gradient(90deg,#17234c,#344e87,#19264e);
+}
+
+.author-book:nth-child(6n+4) {
+    background: linear-gradient(90deg,#492515,#89502b,#492515);
+}
+
+.author-book:nth-child(6n+5) {
+    background: linear-gradient(90deg,#382047,#704b83,#392047);
+}
+
+.author-book:nth-child(6n) {
+    background: linear-gradient(90deg,#665020,#a18138,#665020);
+}
+
+/* Vary book heights */
+
+.author-book:nth-child(4n+1) {
+    height: 225px;
+}
+
+.author-book:nth-child(4n+2) {
+    height: 250px;
+}
+
+.author-book:nth-child(4n+3) {
+    height: 235px;
+}
+
+.author-book:nth-child(4n) {
+    height: 260px;
+}
+
+/* Gold decorative borders */
+
+.author-book::before {
+    content: "";
     position: absolute;
+    inset: 9px 6px;
 
-    top: calc(100% + 16px);
-    left: 50%;
+    border-top: 2px solid rgba(226,190,119,0.85);
+    border-bottom: 2px solid rgba(226,190,119,0.85);
 
-    transform: translateX(-50%);
+    pointer-events: none;
+}
 
-    width: 150px;
+.author-book::after {
+    content: "✦";
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
 
     text-align: center;
+    color: #e6c58b;
+    font-size: 12px;
 
-    font-family: 'Playfair Display', serif;
-
-    font-size: 13px;
-
-    color: var(--parchment);
+    pointer-events: none;
 }
 
-/* ===============================
-   HOVER EFFECT
-================================ */
+/* Author names */
 
-.book:hover {
-    z-index: 10;
+.author-book span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
 
-    transform:
-        translateY(-18px)
-        rotateY(-12deg)
-        rotateZ(-2deg);
+    font-family: "Cinzel Decorative", serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 
-    filter:
-        drop-shadow(10px 18px 12px rgba(0,0,0,.7));
+    color: #fff0c8;
+    text-shadow: 1px 2px 3px #000;
+
+    padding: 28px 0;
+
+    max-height: 100%;
+    overflow: hidden;
+    text-align: center;
 }
 
-/* ===============================
+/* Hover effect */
+
+.author-book:hover {
+    transform: translateY(-13px) rotate(-2deg);
+    z-index: 5;
+
+    box-shadow:
+        0 12px 18px rgba(0,0,0,0.7),
+        0 0 15px rgba(226,190,119,0.4);
+}
+
+.author-book:focus-visible {
+    outline: 3px solid #ffe5a8;
+    outline-offset: 4px;
+}
+
+/* Shelf decorative base */
+
+.library-base {
+    height: 18px;
+    margin-top: -45px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d0a365,
+            #80512d,
+            #392214
+        );
+
+    border: 2px solid #c79b5d;
+
+    box-shadow:
+        0 8px 12px rgba(0,0,0,0.6);
+}
+
+.library-footer {
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.1rem;
+    color: #f5dfae;
+    margin-top: 25px;
+    font-style: italic;
+}
+
+/* =================================
+   HERO
+================================= */
+
+.hero h1 {
+    font-family: "Cinzel Decorative", serif;
+    font-size: clamp(2rem,5vw,4.5rem);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--magic);
+
+    text-shadow:
+        0 0 30px rgba(156,199,255,0.25);
+}
+
+.hero h2 {
+    font-family: "Cinzel Decorative", serif;
+    font-size: clamp(1.5rem,3vw,2.8rem);
+    line-height: 1.3;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: clamp(1.05rem,2vw,1.5rem);
+    line-height: 1.7;
+    margin: 12px auto;
+    max-width: 900px;
+}
+
+.hero span {
+    font-size: clamp(1.2rem,2vw,1.8rem);
+}
+
+.hero-bottom-space {
+    height: 40px;
+}
+
+/* =================================
+   BUTTONS
+================================= */
+
+.btn {
+    display: inline-block;
+    margin-top: 22px;
+    padding: clamp(15px,2vw,22px) clamp(25px,4vw,40px);
+
+    background: var(--magic);
+    color: var(--night);
+
+    border-radius: 10px;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: clamp(1rem,2vw,1.3rem);
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow: 0 0 25px rgba(156,199,255,0.25);
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+/* =================================
+   SECTIONS
+================================= */
+
+section {
+    text-align: center;
+    position: relative;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 80px auto;
+
+    padding:
+        clamp(50px,7vw,80px)
+        clamp(20px,5vw,50px);
+
+    background: white;
+    border: 2px solid var(--night);
+
+    color: var(--night);
+    border-radius: 18px;
+
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section::before {
+    content: "· ☽ ✧ ☾ · ✦ ✧ ✦ ✧ ✦ · ☽ ✧ ☾ · ✦ ✧ ✦ ✧ ✦ ·";
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+    background: var(--midnight);
+    color: white;
+
+    padding: 0.35rem 1rem;
+
+    white-space: nowrap;
+    font-size: clamp(.7rem,1.5vw,.9rem);
+    border-radius: 999px;
+}
+
+section h2 {
+    text-align: center;
+    font-family: "Cinzel Decorative", serif;
+    font-size: clamp(1.8rem,4vw,3rem);
+    margin-bottom: 25px;
+}
+
+section p {
+    font-size: clamp(1rem,2vw,1.4rem);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* =================================
+   EVENT CARDS
+================================= */
+
+.event-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(240px,1fr));
+    gap: 25px;
+}
+
+.event-card {
+    background: var(--midnight);
+    padding: clamp(25px,4vw,40px);
+
+    border-radius: 16px;
+    text-decoration: none;
+    color: white;
+
+    transition: 0.4s;
+    display: block;
+
+    box-shadow: 0 0 20px rgba(156,199,255,0.25);
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+}
+
+.event-card .icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+    color: var(--night);
+
+    border-radius: 12px;
+    font-size: 2.5rem;
+}
+
+.event-card h3 {
+    font-family: "Cinzel Decorative", serif;
+    font-size: clamp(1.2rem,2.5vw,1.8rem);
+    margin-bottom: 15px;
+}
+
+.event-card p {
+    color: white;
+    font-size: clamp(1rem,2vw,1.2rem);
+    line-height: 1.6;
+}
+
+.event-card span {
+    display: inline-block;
+    margin-top: 15px;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: bold;
+    color: white;
+}
+
+/* =================================
    FOOTER
-================================ */
+================================= */
 
 footer {
     text-align: center;
-
-    padding: 65px 20px 30px;
-
-    color: var(--antique-gold);
-
-    font-family: 'Playfair Display', serif;
-
-    font-size: 14px;
-
-    letter-spacing: 2px;
+    padding: 30px;
+    color: var(--muted);
 }
 
-/* ===============================
-   MOBILE
-================================ */
+/* =================================
+   MOBILE NAVIGATION
+================================= */
+
+@media (max-width: 768px) {
+
+    .nav-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .nav-logo {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        white-space: normal;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        background: var(--night);
+        color: white;
+
+        border: 1px solid white;
+        border-radius: 25px;
+
+        padding: 10px 25px;
+
+        font-family: "Cinzel Decorative", serif;
+        font-size: 0.9rem;
+        font-weight: bold;
+
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+        gap: 0;
+
+        padding: 10px 0;
+        margin: 0;
+
+        background: var(--midnight);
+        border-top: 1px solid rgba(255,255,255,0.25);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 13px 10px;
+        font-size: 0.9rem;
+    }
+
+    nav li:last-child a {
+        display: inline-block;
+        margin: 10px auto;
+        padding: 10px 25px;
+        background: white;
+        color: var(--night);
+        border-radius: 25px;
+    }
+
+}
+
+/* =================================
+   MOBILE BOOKSHELF
+================================= */
 
 @media (max-width: 600px) {
 
-    header {
-        padding-top: 50px;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    .subtitle {
-        font-size: .9rem;
-        letter-spacing: 3px;
+    .author-library {
+        padding: 20px 10px 25px;
     }
 
     .bookshelf {
-        gap: 24px;
-        padding: 30px 5px 55px;
+        gap: 0 8px;
+        padding: 10px 4px 0;
     }
 
-    .book {
-        transform: scale(.9);
+    .author-book {
+        width: 51px;
+        height: 205px;
+        margin-bottom: 45px;
     }
 
-    .book:hover {
-        transform: scale(.9) translateY(-12px);
+    .author-book:nth-child(4n+1) {
+        height: 190px;
+    }
+
+    .author-book:nth-child(4n+2) {
+        height: 210px;
+    }
+
+    .author-book:nth-child(4n+3) {
+        height: 200px;
+    }
+
+    .author-book:nth-child(4n) {
+        height: 220px;
+    }
+
+    .author-book span {
+        font-size: 0.57rem;
+        letter-spacing: 0;
+    }
+
+    .library-heading {
+        font-size: 1.15rem;
+    }
+
+    .library-subheading {
+        font-size: 1rem;
     }
 
 }
 
-/* Reduced motion accessibility */
+/* =================================
+   ACCESSIBILITY
+================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
     }
+
+    section {
+        opacity: 1;
+        transform: none;
+    }
+
 }
 
 </style>
 </head>
 
-<>
+<body>
 
-<div id="stars"></div>
+<div class="stars" id="stars"></div>
+
+<!-- =================================
+     NAVIGATION
+================================= -->
+
+<nav>
+    <div class="nav-container">
+
+        <div class="nav-logo">
+            Lost In Pages Events
+        </div>
+
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navMenu">
+
+            <i class="fa-solid fa-bars"></i>
+            <span>Menu</span>
+
+        </button>
+
+        <ul id="navMenu">
+
+            <li><a href="#about">About</a></li>
+            <li><a href="Guests.html">Guests</a></li>
+            <li><a href="Policies.html">Policies</a></li>
+            <li><a href="testing.html">NA</a></li>
+            <li><a href="#newsletter">Newsletter</a></li>
+
+            <li class="social-icon">
+                <a href="https://instagram.com/lostinpagesevents"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </li>
+
+            <li class="social-icon">
+                <a href="https://tiktok.com/@lostinpagesevent"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.eventbrite.co.uk/e/lost-in-pages-brightons-newest-book-event-tickets-1992957687091?utm_experiment=test_share_listing&aff=ebdsshios&sg=f85606848e1d295860e7303a016f1e3bd4de5b39f76db082bb221ff8005ed2113809f6419407b0cc4c11094717f557bc4c7b17e6ae2e0d27d760214a00aef84d4b33c8b72dee2f256543bce8dd98"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Get Tickets
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+
+<!-- =================================
+     HEADER AND AUTHOR BOOKSHELF
+================================= -->
 
 <header>
 
-    <h1>Our Panelled Guests</h1>
+    <div class="author-library">
 
-    <p class="subtitle">Authors</p>
+        <h2 class="library-heading">
+            ✧ Our Wonderful Authors ✧
+        </h2>
+
+        <p class="library-subheading">
+            A library of stories, dreams and imagination
+        </p>
+
+        <div class="bookshelf" id="authorBookshelf">
+            <!-- Author book spines are generated below -->
+        </div>
+
+        <div class="library-base"></div>
+
+        <p class="library-footer">
+            Every spine holds a different story...
+        </p>
+
+    </div>
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <br><br><br>
+
+        <h1>Come with us,</h1>
+        <h1>to get Lost in Pages.</h1>
+
+        <h2>At Brighton's Largest Book Event</h2>
+
+        <br>
+
+        <p>We heard the bookish community loud and clear.</p>
+
+        <p>We are bringing a fiction book event to the South Coast.</p>
+
+        <br>
+
+        <p><span>📅</span> 25 September 2027</p>
+
+        <p><span>🕒</span> Doors open VIP: 10:00 - 19:00</p>
+
+        <p><span>🕒</span> Doors open General: 11:30 - 19:00</p>
+
+        <p><span>📍</span> Brighton Hilton Metropole, Brighton</p>
+
+        <a href="https://www.eventbrite.co.uk/e/lost-in-pages-brightons-newest-book-event-tickets-1992957687091?utm_experiment=test_share_listing&aff=ebdsshios&sg=f85606848e1d295860e7303a016f1e3bd4de5b39f76db082bb221ff8005ed2113809f6419407b0cc4c11094717f557bc4c7b17e6ae2e0d27d760214a00aef84d4b33c8b72dee2f256543bce8dd98"
+           class="btn"
+           target="_blank"
+           rel="noopener noreferrer">
+            Purchase Tickets
+        </a>
+
+        <br>
+
+        <a href="#event" class="btn">
+            Discover More
+        </a>
+
+        <div class="hero-bottom-space"></div>
+
+    </div>
 
 </header>
 
-<main class="container">
+<!-- =================================
+     ABOUT
+================================= -->
 
-    <div class="bookshelf">
+<section id="about">
 
-        <!-- BOOK ONE -->
+    <h2>About Lost in Pages</h2>
 
-        <div class="book burgundy"
-             style="--book-height:260px; --book-width:48px;">
+    <p>
+        Lost In Pages Events is created by two bookish artists
+        with a dream of bringing magical book events to life
+        on the South Coast.
+    </p>
 
-            <div class="spine">
+    <p>
+        Leading with transparency of our vision and values,
+        we are creating an event for the community.
+    </p>
 
-                <span class="spine-title">
-                    Maiden
-                </span>
+    <p>
+        Bringing a world of fiction together in one place,
+        alongside crafts, Q&As, signing, shopping and more.
+    </p>
 
-                <span class="spine-author">
-                    GL
-                </span>
+</section>
 
-            </div>
+<!-- =================================
+     EVENT
+================================= -->
 
-            <div class="book-top"></div>
+<section id="event" style="background:#f5f7fb;">
 
-            <div class="book-cover"
-                 style="background-image:url('https://janhendrikewers.uk/static/img/bookshelf/1.jpg');">
-            </div>
+    <div class="container">
 
-      
+        <h2 class="section-title">
+            Brighton Book Event 2027
+        </h2>
 
-        </div>
+        <p class="section-intro">
+            Whether you're an avid reader, aspiring writer,
+            audiobook lover or simply looking for a magical
+            day out, Lost In Pages has something for everyone.
+        </p>
 
+        <div class="event-grid">
 
-        <!-- BOOK TWO -->
+            <a href="about.html" class="event-card">
 
-        <div class="book forest"
-             style="--book-height:230px; --book-width:55px;">
+                <div class="icon">📖</div>
 
-            <div class="spine">
+                <h3>About the Event</h3>
 
-                <span class="spine-title">
-                    Weavingshaw
-                </span>
+                <p>
+                    Discover everything you need to know about
+                    Lost In Pages, including FAQs, venue
+                    information and what to expect on the day.
+                </p>
 
-                <span class="spine-author">
-                    HA-W
-                </span>
+                <span>Learn More →</span>
 
-            </div>
+            </a>
 
-            <div class="book-top"></div>
+            <a href="Guests.html" class="event-card">
 
-            <div class="book-cover"
-                 style="background-image:url('https://janhendrikewers.uk/static/img/bookshelf/1.jpg');">
-            </div>
+                <div class="icon">✨</div>
 
-         
+                <h3>Authors & Guests</h3>
 
-        </div>
+                <p>
+                    Meet authors, narrators, artists, bookshops,
+                    and more.
+                </p>
 
+                <span>Meet Everyone →</span>
 
-        <!-- BOOK THREE -->
+            </a>
 
-        <div class="book navy"
-             style="--book-height:280px; --book-width:46px;">
+            <a href="Policies.html" class="event-card">
 
-            <div class="spine">
+                <div class="icon">🛡️</div>
 
-                <span class="spine-title">
-                    The Light That Blinds Us
-                </span>
+                <h3>Policies</h3>
 
-                <span class="spine-author">
-                    ADT
-                </span>
+                <p>
+                    Read our accessibility guidance, attendee
+                    information, cancellation policy and event
+                    rules before attending.
+                </p>
 
-            </div>
+                <span>Read Policies →</span>
 
-            <div class="book-top"></div>
-
-            <div class="book-cover"
-                 style="background-image:url('https://janhendrikewers.uk/static/img/bookshelf/1.jpg');">
-            </div>
+            </a>
 
         </div>
 
     </div>
 
-</main>
+</section>
+
+<!-- =================================
+     NEWSLETTER
+================================= -->
+
+<section id="newsletter">
+
+    <h2>Join Our Newsletter</h2>
+
+    <p>
+        Be the first to hear about tickets and updates.
+    </p>
+
+    <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfaoxTG4EFEg1JrciLuYrGdon9V8X9vvr7cZRnm9fXDVitEPQ/viewform?usp=header=true"
+        width="100%"
+        height="220"
+        style="border:none; margin-top:20px;"
+        title="Lost In Pages newsletter signup">
+    </iframe>
+
+</section>
+
+<!-- =================================
+     CONTACT
+================================= -->
+
+<section id="contact">
+
+    <h2>Contact Us</h2>
+
+    <p>
+        Email:
+        <a href="mailto:lostinpagesevents@gmail.com">
+            lostinpagesevents@gmail.com
+        </a>
+    </p>
+
+    <p>
+        Instagram:
+        <a href="https://instagram.com/lostinpagesevents"
+           target="_blank"
+           rel="noopener noreferrer">
+            @lostinpagesevents
+        </a>
+    </p>
+
+    <p>
+        TikTok:
+        <a href="https://tiktok.com/@lostinpagesevent"
+           target="_blank"
+           rel="noopener noreferrer">
+            @lostinpagesevent
+        </a>
+    </p>
+
+</section>
+
+<!-- =================================
+     FOOTER
+================================= -->
 
 <footer>
-    Lost In Pages Events
+
+    <p>
+        &copy; 2026 Lost In Pages Events
+    </p>
+
 </footer>
+
+<!-- =================================
+     JAVASCRIPT
+================================= -->
 
 <script>
 
-/* ===============================
-   STAR BACKGROUND
-================================ */
+/* =================================
+   AUTHOR BOOK DATA
 
-const starsContainer = document.getElementById("stars");
+   Add new authors here.
+   Each author needs:
+   name: Author name
+   link: Instagram profile
+================================= */
 
-for (let i = 0; i < 100; i++) {
+const authors = [
 
-    const star = document.createElement("div");
+    {
+        name: "Andy Darcy Theo",
+        link: "https://www.instagram.com/andydarcytheo/?hl=en"
+    },
+    {
+        name: "Ann Butler / A.N. Butler",
+        link: "https://www.instagram.com/annbutler2023/"
+    },
+    {
+        name: "A.K. Faulkner",
+        link: "https://www.instagram.com/poopraven/?hl=en-gb"
+    },
+    {
+        name: "Ali Williams / Ellie Rose",
+        link: "https://www.instagram.com/claficionado/?hl=en"
+    },
+    {
+        name: "Aurelie Artulus",
+        link: "https://www.instagram.com/authoraurelieartulus/"
+    },
+    {
+        name: "B.A. Pepper",
+        link: "https://www.instagram.com/b.a.pepperauthor/"
+    },
+    {
+        name: "Bekah Jaymes",
+        link: "https://www.instagram.com/authorbekahjaymes/?hl=en-gb"
+    },
+    {
+        name: "C.K. Andersson",
+        link: "https://www.instagram.com/ckandersson/"
+    },
+    {
+        name: "Cam Lamblin",
+        link: "https://www.instagram.com/camlamblin/"
+    },
+    {
+        name: "Caroline Astiago",
+        link: "https://www.instagram.com/caroline_astiago/"
+    },
+    {
+        name: "Chloe L Blyth",
+        link: "https://www.instagram.com/chloeblythauthor/?hl=en-gb"
+    },
+    {
+        name: "Chrissie Harrison",
+        link: "https://www.instagram.com/authorchrissieharrison/"
+    },
+    {
+        name: "Ciara Delahunt",
+        link: "https://www.instagram.com/ciaradelahunt/?hl=en-gb"
+    },
+    {
+        name: "Clare London / Stella Shaw",
+        link: "https://www.instagram.com/clarelondon11/?hl=en-gb"
+    },
+    {
+        name: "Damien Buckley",
+        link: "https://www.instagram.com/damienbuckleyauthor/?hl=en-gb"
+    },
+    {
+        name: "Dan Vecchi",
+        link: "https://www.instagram.com/danvecchiauthor/?hl=en-gb"
+    },
+    {
+        name: "E.V. Sauvage",
+        link: "https://www.instagram.com/e.v.sauvage_books/"
+    },
+    {
+        name: "Em Solstice",
+        link: "https://www.instagram.com/emsolsticeauthor/?hl=en-gb"
+    },
+    {
+        name: "F.R. Burns",
+        link: "https://www.instagram.com/frburnsauthor?igsh=MTJtYzQ4aXZ5YXpuYQ=="
+    },
+    {
+        name: "Fern Cole",
+        link: "https://www.instagram.com/ferncoleauthor/?hl=en-gb"
+    },
+    {
+        name: "Francesca McMahon / Francesca May",
+        link: "https://www.instagram.com/adoseoffran/?hl=en-gb"
+    },
+    {
+        name: "G.E. Smith",
+        link: "https://www.instagram.com/gesmithauthor/?hl=en-gb"
+    },
+    {
+        name: "Georgia Leighton",
+        link: "https://www.instagram.com/georgialeightonauthor/?hl=en-gb"
+    },
+    {
+        name: "GL Young",
+        link: "https://www.instagram.com/allurheimofficial/?hl=en-gb"
+    },
+    {
+        name: "Hayley Pierce",
+        link: "https://www.instagram.com/hayleypiercewrites/?hl=en-gb"
+    },
+    {
+        name: "Hollie Rogers",
+        link: "https://www.instagram.com/author_hollie_rogers/?hl=en-gb"
+    },
+    {
+        name: "Ilana Lindsey",
+        link: "https://www.instagram.com/ilanamiral/?hl=en-gb"
+    },
+    {
+        name: "Imani Erriu",
+        link: "https://www.instagram.com/authorimanierriu/?hl=en-gb"
+    },
+    {
+        name: "Issy Eva",
+        link: "https://www.instagram.com/issyevaauthor/?hl=en-gb"
+    },
+    {
+        name: "Jac Franklin",
+        link: "https://www.instagram.com/jac.franklin.author/?hl=en-gb"
+    },
+    {
+        name: "Jade Church",
+        link: "https://www.instagram.com/authorjadechurch/?hl=en-gb"
+    },
+    {
+        name: "Jessa Lourose",
+        link: "https://www.instagram.com/authorjessalourose/?hl=en-gb"
+    },
+    {
+        name: "Jessica Elisabeth",
+        link: "https://www.instagram.com/jessicaelisabethauthor/?hl=en-gb"
+    },
+    {
+        name: "Josephine Greenland",
+        link: "https://www.instagram.com/jgreenlandauthor/?hl=en-gb"
+    },
+    {
+        name: "K.L. Taylor-Lane",
+        link: "https://www.instagram.com/kltaylorlane_author/?hl=en-gb"
+    },
+    {
+        name: "Kate Andrew",
+        link: "https://www.instagram.com/kateandrewauthor/?hl=en-gb"
+    },
+    {
+        name: "Kate B King",
+        link: "https://www.instagram.com/katebkingauthor/"
+    },
+    {
+        name: "KJ Pointer",
+        link: "https://www.instagram.com/authorkjpointer/?hl=en-gb"
+    },
+    {
+        name: "L.L. MacRae",
+        link: "https://www.instagram.com/_llmacrae/"
+    },
+    {
+        name: "L.Q. Lark",
+        link: "https://www.instagram.com/l.q.lark/?hl=en-gb"
+    },
+    {
+        name: "L.R. Douglas",
+        link: "https://www.instagram.com/lrdouglasbooks/?hl=en-gb"
+    },
+    {
+        name: "Laura Carter",
+        link: "https://www.instagram.com/author_lauracarter/?hl=en-gb"
+    },
+    {
+        name: "Lea Rose",
+        link: "https://www.instagram.com/authorlearose/?hl=en-gb"
+    },
+    {
+        name: "Lucy Brighton",
+        link: "https://www.instagram.com/brightwritenow/?hl=en-gb"
+    },
+    {
+        name: "Lucy May Smith",
+        link: "https://www.instagram.com/lucymsmithbooks/?hl=en-gb"
+    },
+    {
+        name: "Martha Monteval",
+        link: "https://www.instagram.com/marthamontevalauthor/?hl=en-gb"
+    },
+    {
+        name: "Matthew Phillips",
+        link: "https://www.instagram.com/matthew.phillips.author/?hl=en-gb"
+    },
+    {
+        name: "Meg Humble",
+        link: "https://www.instagram.com/meghumble.author/?hl=en-gb"
+    },
+    {
+        name: "Megan Musgrove",
+        link: "https://www.instagram.com/meganmusgroveauthor/?hl=en-gb"
+    },
+    {
+        name: "Natalie Horner",
+        link: "https://www.instagram.com/writerreadertother/"
+    },
+    {
+        name: "Neil Hart",
+        link: "https://www.instagram.com/neiljhartwrites/?hl=en-gb"
+    },
+    {
+        name: "Patricia Prior",
+        link: "https://www.instagram.com/authorpatriciaprior/"
+    },
+    {
+        name: "Rachael Chadwick",
+        link: "https://www.instagram.com/rachaelchadwickauthor/"
+    },
+    {
+        name: "Rachel Medhurst",
+        link: "https://www.instagram.com/rachelmedhurstauthor/"
+    },
+    {
+        name: "R.A. Sandpiper",
+        link: "https://www.instagram.com/rasandpiper/"
+    },
+    {
+        name: "Sarah McVeigh",
+        link: "https://www.instagram.com/sarahmc_author_editor/"
+    },
+    {
+        name: "Selina Shaw",
+        link: "https://www.instagram.com/shawberrytart/"
+    },
+    {
+        name: "Seren Tywyll",
+        link: "https://www.instagram.com/seren_tywyll/"
+    },
+    {
+        name: "Sian Badich",
+        link: "https://www.instagram.com/sbadichwrites/"
+    },
+    {
+        name: "Sophie Davies",
+        link: "https://www.instagram.com/sophie_davies_author/"
+    },
+    {
+        name: "Sapphire Wolf / Sue Brown",
+        link: "https://www.instagram.com/suebrownstories/"
+    },
+    {
+        name: "T. Nolan",
+        link: "https://www.instagram.com/tnolanauthor/?hl=en-gb"
+    },
+    {
+        name: "Venetia Constantine",
+        link: "https://www.instagram.com/venetiaconstantine/"
+    },
+    {
+        name: "Wren Charles",
+        link: "https://www.instagram.com/authorwrencharles/"
+    },
+    {
+        name: "Will Soulsby-McCreath",
+        link: "https://www.instagram.com/nopoodles/"
+    },
+    {
+        name: "Wren Willoughby",
+        link: "https://www.instagram.com/wrenwilloughbywrites/"
+    },
+    {
+        name: "Z.J. Goodey",
+        link: "https://www.instagram.com/z.j.goodeyauthor/"
+    },
+    {
+        name: "Z.R.R. Beatham",
+        link: "https://www.instagram.com/zaynewrites_/"
+    }
 
-    star.className = "star";
+];
 
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
+/* =================================
+   CREATE THE BOOK SPINES
+================================= */
 
-    const size = Math.random() * 3 + 1;
+const bookshelf = document.getElementById("authorBookshelf");
 
-    star.style.width = size + "px";
-    star.style.height = size + "px";
+authors.forEach(author => {
 
-    star.style.animationDelay =
-        Math.random() * 3 + "s";
+    const book = document.createElement("a");
 
-    starsContainer.appendChild(star);
+    book.className = "author-book";
+
+    book.href = author.link;
+
+    book.target = "_blank";
+
+    book.rel = "noopener noreferrer";
+
+    book.setAttribute(
+        "aria-label",
+        "Visit " + author.name + " on Instagram"
+    );
+
+    const name = document.createElement("span");
+
+    name.textContent = author.name;
+
+    book.appendChild(name);
+
+    bookshelf.appendChild(book);
+
+});
+
+/* =================================
+   FLOATING STARS
+================================= */
+
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 60; i++) {
+
+    const s = document.createElement("div");
+
+    s.classList.add("star");
+
+    s.style.left = Math.random() * 100 + "vw";
+
+    s.style.top = Math.random() * 100 + "vh";
+
+    s.style.animationDuration =
+        (5 + Math.random() * 10) + "s";
+
+    s.style.opacity = Math.random();
+
+    stars.appendChild(s);
 
 }
+
+/* =================================
+   SECTION REVEAL
+================================= */
+
+const sections = document.querySelectorAll("section");
+
+if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    sections.forEach(section => observer.observe(section));
+
+} else {
+
+    sections.forEach(section => section.classList.add("show"));
+
+}
+
+/* =================================
+   MOBILE DROPDOWN MENU
+================================= */
+
+const menuToggle = document.getElementById("menuToggle");
+
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", function () {
+
+    const isOpen = navMenu.classList.toggle("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+
+    menuToggle.querySelector("i").className = isOpen
+        ? "fa-solid fa-xmark"
+        : "fa-solid fa-bars";
+
+});
+
+/* Close menu when a link is selected */
+
+navMenu.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", function () {
+
+        navMenu.classList.remove("active");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+        menuToggle.querySelector("i").className =
+            "fa-solid fa-bars";
+
+    });
+
+});
 
 </script>
 
