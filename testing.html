@@ -180,3 +180,79 @@ footer{
 <div id="stars"></div>
 <div id="shooting-stars"></div>
 
+
+<header>
+
+<h1>Our Panelled Guests</h1>
+
+<p class="subtitle">
+Authors
+</p>
+
+</header>
+    
+@import "compass"
+color variables
+$blue: #55ADCF
+$green: #69B490
+$background-color: #fff
+
+// simple styles
+body
+  background-color: $background-color
+
+a
+  +link-colors($blue, $green, $green, $blue)
+  text-decoration: none
+
+
+// SIMULATE A BOOK SPINE
+=book-border($width: 6px, $bg-color: $background-color, $spine-color: false)
+  $border-bottom-width: $width
+  $border-bottom-width-half: $border-bottom-width / 2
+  border:
+    width: 0 1px $border-bottom-width 1px
+    style: none solid solid
+  border-top-color: transparent
+  border-left-color: transparent
+  border-right-color: transparent
+  @if $spine-color
+    position: relative
+    &:before, &:after 
+      position: absolute
+  @else
+    position: relative
+    &:before
+      position: absolute
+  &:before
+    display: block
+    content: '\0020'
+    width: 0
+    height: 0
+    left: 50%
+    bottom: -$border-bottom-width-half
+    +transform(translateX(-$border-bottom-width-half))
+    border-width: $border-bottom-width-half $border-bottom-width-half 0 $border-bottom-width-half
+    border-color: transparent
+    border-style: solid solid none solid
+    border-top-color: $bg-color
+  @if $spine-color
+    &:after
+      display: block
+      content: '\0020'
+      width: $width
+      height: 1px
+      background-color: $spine-color
+      left: 50%
+      bottom: -$border-bottom-width - 1px
+      +transform(translateX(-$border-bottom-width-half))
+
+// apply book spines to menu items
+nav.main-menu
+  ul
+    +horizontal-list
+    +adjust-font-size-to(24px)
+  a
+    padding: 0 0.5em 0 0.25em
+    line-height: 1.4
+    +book-border($spine-color: $blue)
