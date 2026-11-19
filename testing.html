@@ -167,6 +167,9 @@
     margin-top: 32px;
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 15px;
 }
 
 .book {
@@ -366,8 +369,12 @@ h1 {
 /* =================================
    BOOK INFORMATION
 ================================= */
-
 .book-info {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
     text-align: center;
     margin-top: 15px;
     font-family: 'Playfair Display', serif;
