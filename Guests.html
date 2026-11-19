@@ -558,6 +558,84 @@ footer{
 
 }
 
+/* REDUCE MOTION */
+
+@media(prefers-reduced-motion:reduce){
+
+    section {
+        transition:none;
+        opacity:1;
+        transform:none;
+    }
+
+    .star {
+        animation:none;
+    }
+
+}
+
+
+/* =================================
+   MOBILE DROPDOWN NAVIGATION
+================================= */
+
+.menu-toggle {
+    display: none;
+    background: white;
+    color: var(--night);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 14px 20px;
+    }
+
+    .nav-logo {
+        width: auto;
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        list-style: none;
+    }
+
+    nav li:last-child a {
+        display: inline-block;
+    }
+
+}
+
+</style>
+
 </style>
 
 </head>
@@ -573,7 +651,13 @@ footer{
             Lost In Pages Events
         </div>
 
-
+<button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+    Menu
+</button>
+        
         <ul>
 
             <li><a href="https://lostinpagesevents.co.uk/index.html"
