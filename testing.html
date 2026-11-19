@@ -270,6 +270,101 @@ header {
     overflow: hidden;
 }
 
+/* =================================
+   WHIMSICAL ENCHANTED BOOK SPINES
+================================= */
+
+/* More elaborate spine detailing */
+
+.author-book {
+    border-radius: 5px 9px 9px 5px;
+
+    border-left: 6px solid rgba(0,0,0,0.45);
+
+    box-shadow:
+        4px 6px 10px rgba(0,0,0,0.65),
+        inset 2px 0 5px rgba(255,255,255,0.2),
+        inset -5px 0 8px rgba(0,0,0,0.35),
+        0 0 4px rgba(175,205,255,0.15);
+}
+
+/* Ornate silver borders */
+
+.author-book::before {
+    content: "✧";
+    position: absolute;
+    inset: 8px 5px;
+
+    border-top: 2px solid #bfcfea;
+    border-bottom: 2px solid #bfcfea;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    color: #e4eaff;
+    font-size: 15px;
+
+    pointer-events: none;
+}
+
+/* Decorative celestial details */
+
+.author-book::after {
+    content: "☾";
+    position: absolute;
+
+    top: 14px;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    color: #e6eaff;
+    font-size: 17px;
+
+    text-shadow:
+        0 0 6px rgba(210,225,255,0.8);
+
+    pointer-events: none;
+}
+
+/* Elegant lettering */
+
+.author-book span {
+    font-size: 0.76rem;
+    letter-spacing: 1.2px;
+
+    color: #fff7e6;
+
+    text-shadow:
+        0 0 4px rgba(255,255,255,0.25),
+        1px 2px 3px #000;
+}
+
+/* Magical hover */
+
+.author-book:hover {
+    transform: translateY(-15px) rotate(-3deg);
+
+    box-shadow:
+        0 14px 20px rgba(0,0,0,0.7),
+        0 0 12px rgba(175,205,255,0.65),
+        0 0 25px rgba(120,160,255,0.3);
+}
+
+/* Decorative little stars around the bookcase */
+
+.library-footer::before {
+    content: "✦  ☽  ✧  ";
+    color: #c9d9ff;
+}
+
+.library-footer::after {
+    content: "  ✧  ☾  ✦";
+    color: #c9d9ff;
+}
+
 /* COLOURED BOOK SPINES */
 
 .author-book:nth-child(6n+1) {
