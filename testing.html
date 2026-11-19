@@ -165,42 +165,45 @@ header {
         );
 }
 
+
 /* =================================
-   VINTAGE AUTHOR BOOKSHELF
+   MIDNIGHT BLUE VINTAGE LIBRARY
 ================================= */
 
 .author-library {
     width: min(100%, 1250px);
     margin: 10px auto 55px;
-    padding: 25px 22px 35px;
+    padding: 28px 22px 35px;
 
     background:
-        linear-gradient(
-            135deg,
-            #51331f,
-            #24140d 50%,
-            #704629
+        radial-gradient(
+            ellipse at top,
+            #192d59 0%,
+            #0b1736 55%,
+            #050c20 100%
         );
 
-    border: 9px ridge #a77a43;
+    border: 8px ridge #647ba8;
     border-radius: 8px;
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,0.7),
-        inset 0 0 30px rgba(0,0,0,0.7);
+        0 15px 35px rgba(0,0,0,0.8),
+        inset 0 0 35px rgba(0,0,0,0.8);
 }
 
 .library-heading {
     font-family: "Cinzel Decorative", serif;
-    color: #f5dfae;
+    color: #e5edff;
     font-size: clamp(1.2rem,3vw,2rem);
     text-align: center;
     margin-bottom: 12px;
-    text-shadow: 0 2px 8px #000;
+
+    text-shadow:
+        0 0 12px rgba(156,199,255,0.5);
 }
 
 .library-subheading {
-    color: #e6cda0;
+    color: #b8c9ed;
     font-family: "Cormorant Garamond", serif;
     font-size: 1.25rem;
     text-align: center;
@@ -208,7 +211,7 @@ header {
     font-style: italic;
 }
 
-/* The actual shelves */
+/* SHELVES */
 
 .bookshelf {
     display: flex;
@@ -225,14 +228,14 @@ header {
             to bottom,
             transparent 0,
             transparent 270px,
-            #bd8950 270px,
-            #80512d 281px,
-            #3d2415 289px,
+            #8195bc 270px,
+            #344a75 281px,
+            #111f40 289px,
             transparent 295px
         );
 }
 
-/* Individual book spine */
+/* BOOK SPINES */
 
 .author-book {
     position: relative;
@@ -247,23 +250,181 @@ header {
     margin-bottom: 45px;
 
     text-decoration: none;
-    color: #f5dfae;
+    color: #eaf0ff;
 
     border-radius: 4px 7px 7px 4px;
 
-    border-left: 5px solid rgba(0,0,0,0.4);
-    border-right: 2px solid rgba(255,255,255,0.12);
+    border-left: 5px solid rgba(0,0,0,0.45);
+    border-right: 2px solid rgba(255,255,255,0.18);
 
     box-shadow:
-        4px 5px 8px rgba(0,0,0,0.65),
-        inset 3px 0 5px rgba(255,255,255,0.15),
-        inset -4px 0 5px rgba(0,0,0,0.3);
+        4px 5px 8px rgba(0,0,0,0.7),
+        inset 3px 0 5px rgba(255,255,255,0.12),
+        inset -4px 0 5px rgba(0,0,0,0.35);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 
     overflow: hidden;
+}
+
+/* COLOURED BOOK SPINES */
+
+.author-book:nth-child(6n+1) {
+    background: linear-gradient(90deg,#350e25,#702442,#42142d);
+}
+
+.author-book:nth-child(6n+2) {
+    background: linear-gradient(90deg,#102b39,#23546b,#153747);
+}
+
+.author-book:nth-child(6n+3) {
+    background: linear-gradient(90deg,#101b40,#293f78,#14234c);
+}
+
+.author-book:nth-child(6n+4) {
+    background: linear-gradient(90deg,#172c27,#285b4b,#19392e);
+}
+
+.author-book:nth-child(6n+5) {
+    background: linear-gradient(90deg,#302044,#5c4174,#38264e);
+}
+
+.author-book:nth-child(6n) {
+    background: linear-gradient(90deg,#30394c,#566781,#343e52);
+}
+
+/* VARYING BOOK HEIGHTS */
+
+.author-book:nth-child(4n+1) {
+    height: 225px;
+}
+
+.author-book:nth-child(4n+2) {
+    height: 250px;
+}
+
+.author-book:nth-child(4n+3) {
+    height: 235px;
+}
+
+.author-book:nth-child(4n) {
+    height: 260px;
+}
+
+/* SILVER SPINE DECORATIONS */
+
+.author-book::before {
+    content: "";
+    position: absolute;
+    inset: 9px 6px;
+
+    border-top: 2px solid rgba(207,222,255,0.85);
+    border-bottom: 2px solid rgba(207,222,255,0.85);
+
+    pointer-events: none;
+}
+
+.author-book::after {
+    content: "✦";
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+    color: #e0eaff;
+    font-size: 12px;
+
+    pointer-events: none;
+}
+
+/* AUTHOR NAMES */
+
+.author-book span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: #f0f4ff;
+    text-shadow: 1px 2px 3px #000;
+
+    padding: 28px 0;
+
+    max-height: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* HOVER */
+
+.author-book:hover {
+    transform: translateY(-13px) rotate(-2deg);
+    z-index: 5;
+
+    box-shadow:
+        0 12px 18px rgba(0,0,0,0.7),
+        0 0 18px rgba(156,199,255,0.45);
+}
+
+/* SILVER BOOKCASE BASE */
+
+.library-base {
+    height: 18px;
+    margin-top: -45px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #c4d1e8,
+            #647ba8,
+            #1b2b4e
+        );
+
+    border: 2px solid #aabbdc;
+
+    box-shadow:
+        0 8px 12px rgba(0,0,0,0.7);
+}
+
+.library-footer {
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.1rem;
+    color: #dce7ff;
+    margin-top: 25px;
+    font-style: italic;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .author-library {
+        padding: 20px 10px 25px;
+    }
+
+    .bookshelf {
+        gap: 0 8px;
+        padding: 10px 4px 0;
+    }
+
+    .author-book {
+        width: 51px;
+        height: 205px;
+        margin-bottom: 45px;
+    }
+
+    .author-book span {
+        font-size: 0.57rem;
+        letter-spacing: 0;
+    }
+
 }
 
 /* Book spine colours */
