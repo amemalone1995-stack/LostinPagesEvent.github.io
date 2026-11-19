@@ -191,68 +191,47 @@ Authors
 
 </header>
     
-@import "compass"
-color variables
-$blue: #55ADCF
-$green: #69B490
-$background-color: #fff
+:root {
+  --pyramid: linear-gradient(
+    315deg,
+    transparent 75%,
+    rgba(255, 255, 255, 0.1) 0
+  ),
+  linear-gradient(
+    45deg,
+    transparent 75%,
+    rgba(255, 255, 255, 0.1) 0
+  ),
+  linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 166px,
+    transparent 0
+  ),
+  linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.1) 75%,
+    transparent 0
+  );
+  background-size: 20px 20px;
+}
 
-// simple styles
-body
-  background-color: $background-color
+.spine {
+  background-image: var(--tartan); /* Uses the --tartan variable */
+}
 
-a
-  +link-colors($blue, $green, $green, $blue)
-  text-decoration: none
+<div class="book">
+  <div class="side spine">
+    <span class="spine-title">Blade Runner</span>
+    <span class="spine-author">RS</span>
+  </div>
+  <div class="side top"></div>
+  <div class="side cover" img="https://janhendrikewers.uk/static/img/bookshelf/1.jpg"></div>
+</div>
 
 
-// SIMULATE A BOOK SPINE
-=book-border($width: 6px, $bg-color: $background-color, $spine-color: false)
-  $border-bottom-width: $width
-  $border-bottom-width-half: $border-bottom-width / 2
-  border:
-    width: 0 1px $border-bottom-width 1px
-    style: none solid solid
-  border-top-color: transparent
-  border-left-color: transparent
-  border-right-color: transparent
-  @if $spine-color
-    position: relative
-    &:before, &:after 
-      position: absolute
-  @else
-    position: relative
-    &:before
-      position: absolute
-  &:before
-    display: block
-    content: '\0020'
-    width: 0
-    height: 0
-    left: 50%
-    bottom: -$border-bottom-width-half
-    +transform(translateX(-$border-bottom-width-half))
-    border-width: $border-bottom-width-half $border-bottom-width-half 0 $border-bottom-width-half
-    border-color: transparent
-    border-style: solid solid none solid
-    border-top-color: $bg-color
-  @if $spine-color
-    &:after
-      display: block
-      content: '\0020'
-      width: $width
-      height: 1px
-      background-color: $spine-color
-      left: 50%
-      bottom: -$border-bottom-width - 1px
-      +transform(translateX(-$border-bottom-width-half))
+let availablePatterns = ["argyle", "tartan", "stairs", "pyramid"];
 
-// apply book spines to menu items
-nav.main-menu
-  ul
-    +horizontal-list
-    +adjust-font-size-to(24px)
-  a
-    padding: 0 0.5em 0 0.25em
-    line-height: 1.4
-    +book-border($spine-color: $blue)
+spines.map(function (s, i) {
+  let randomPattern = randomChoice(availablePatterns);
+  s.style.backgroundImage = `var(${randomPattern})`;
+});
