@@ -169,39 +169,16 @@
     flex-wrap: wrap;
 }
 
-/* =================================
-   BOOK SIZES
-================================= */
+.book {
+    width: 50px;
+    height: 280px;
+    position: relative;
+    margin-left: 1px;
+    transform-style: preserve-3d;
+    transform: translateZ(0) rotateY(0);
+    transition: transform 1s;
+}
 
-const bookSizes = [
-    { height: 260, width: 42 },
-    { height: 220, width: 55 },
-    { height: 280, width: 45 }
-];
-
-document.querySelectorAll(".book").forEach(function(book, i) {
-
-    const size = bookSizes[i];
-
-    if (!size) return;
-
-    book.style.width = size.width + "px";
-    book.style.height = size.height + "px";
-
-    const spine = book.querySelector(".spine");
-    const cover = book.querySelector(".cover");
-    const top = book.querySelector(".top");
-
-    spine.style.width = size.width + "px";
-    spine.style.height = size.height + "px";
-
-    cover.style.height = size.height + "px";
-    cover.style.top = (280 - size.height) + "px";
-
-    top.style.top = (280 - size.height) + "px";
-
-});
-   
 .side {
     position: absolute;
     border: 2px solid black;
@@ -598,6 +575,40 @@ footer {
 ================================= -->
 
 <script>
+
+/* =================================
+   FIXED BOOK SIZES
+================================= */
+
+const bookSizes = [
+    { height: 260, width: 42 },
+    { height: 220, width: 55 },
+    { height: 280, width: 45 }
+];
+
+document.querySelectorAll(".book").forEach(function(book, i) {
+
+    const size = bookSizes[i];
+
+    if (!size) return;
+
+    const spine = book.querySelector(".spine");
+    const cover = book.querySelector(".cover");
+    const top = book.querySelector(".top");
+
+    book.style.width = size.width + "px";
+    book.style.height = "280px";
+
+    spine.style.width = size.width + "px";
+    spine.style.height = size.height + "px";
+
+    cover.style.height = size.height + "px";
+    cover.style.top = (280 - size.height) + "px";
+
+    top.style.top = (280 - size.height) + "px";
+
+});
+
 
 /* =================================
    RANDOM BOOK PATTERNS
