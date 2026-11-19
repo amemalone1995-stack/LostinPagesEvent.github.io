@@ -24,6 +24,22 @@
 ================================= */
 
 :root {
+   
+
+   :root {
+    --midnight: #15110e;
+
+    --antique-gold: #c5a46d;
+    --aged-gold: #927044;
+    --parchment: #e6d5b5;
+
+    --burgundy: #54252d;
+    --forest: #263d32;
+    --navy: #252e46;
+    --brown: #493323;
+    --dusty-green: #59644a;
+}
+
 
     --midnight: #080d25;
 
@@ -198,9 +214,62 @@
     position: relative;
     width: 50px;
     height: 280px;
-    background-image: var(--spine-tartan);
-    background-size: 70px 120px;
-    transform: rotateY(0deg) translateZ(0px);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.45),
+            transparent 20%,
+            rgba(255,255,255,.08) 45%,
+            transparent 75%,
+            rgba(0,0,0,.35)
+        ),
+        linear-gradient(
+            180deg,
+            #66352e,
+            #3d201d 50%,
+            #66352e
+        );
+
+    border: 1px solid #a17b49;
+    border-radius: 3px 2px 2px 3px;
+
+    box-shadow:
+        inset 2px 0 4px rgba(0,0,0,.5),
+        inset -2px 0 4px rgba(0,0,0,.3),
+        3px 0 5px rgba(0,0,0,.5);
+.spine::before {
+    content: "";
+    position: absolute;
+
+    top: 12px;
+    bottom: 12px;
+    left: 5px;
+    right: 5px;
+
+    border-left: 1px solid rgba(197,164,109,.8);
+    border-right: 1px solid rgba(197,164,109,.8);
+
+    pointer-events: none;
+}
+
+.spine::after {
+    content: "";
+    position: absolute;
+
+    left: 3px;
+    right: 3px;
+    top: 10px;
+
+    height: 5px;
+
+    border-top: 1px solid #c5a46d;
+    border-bottom: 1px solid #c5a46d;
+
+    box-shadow:
+        0 250px 0 -1px rgba(197,164,109,.8);
+
+    pointer-events: none;
 }
 
 .spine-title {
