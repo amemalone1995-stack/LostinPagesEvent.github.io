@@ -180,6 +180,8 @@
     transform-style: preserve-3d;
     transform: translateZ(0) rotateY(0);
     transition: transform 1s;
+    display: flex;
+    align-items: flex-end;
 }
 
 .side {
@@ -576,11 +578,14 @@ document.querySelectorAll(".book").forEach(function(book, i) {
     const cover = book.querySelector(".cover");
     const top = book.querySelector(".top");
 
-    book.style.width = size.width + "px";
-    book.style.height = "280px";
+   
+book.style.height = "280px";
 
-    spine.style.width = size.width + "px";
-    spine.style.height = size.height + "px";
+spine.style.width = size.width + "px";
+spine.style.height = size.height + "px";
+spine.style.position = "absolute";
+spine.style.bottom = "0";
+   
 
     cover.style.height = size.height + "px";
     cover.style.top = (280 - size.height) + "px";
