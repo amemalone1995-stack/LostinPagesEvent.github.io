@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
 
 <title>September 25th 2027 | Lost In Pages Events</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -18,6 +19,7 @@
     --text: #f8f8ff;
     --midnight: #6495ed;
     --muted: #ffffff;
+    --gold: #c9a66b;
 }
 
 * {
@@ -43,12 +45,9 @@ body {
         rgba(5,12,35,0.98)
     ),
     url("background.jpg") center/cover fixed no-repeat;
-    
 }
 
-/* =================================
-   FLOATING STARS
-================================= */
+/* FLOATING STARS */
 
 .stars {
     position: fixed;
@@ -74,16 +73,13 @@ body {
         transform: translateY(0);
         opacity: 0.2;
     }
-
     to {
         transform: translateY(-100vh);
         opacity: 0.8;
     }
 }
 
-/* =================================
-   NAVIGATION
-================================= */
+/* NAVIGATION */
 
 nav {
     position: sticky;
@@ -135,22 +131,13 @@ nav li:last-child a {
     padding: 10px 22px;
     border-radius: 25px;
     font-weight: bold;
-    box-shadow: 0 0 15px rgba(255,255,255,0.35);
-}
-
-nav li:last-child a:hover {
-    background: var(--night);
-    color: white;
-    transform: translateY(-2px);
 }
 
 .menu-toggle {
     display: none;
 }
 
-/* =================================
-   HEADER
-================================= */
+/* HEADER */
 
 header {
     text-align: center;
@@ -159,30 +146,29 @@ header {
     z-index: 1;
 
     background:
-        radial-gradient(
-            circle at top,
-            rgba(156,199,255,0.18),
-            transparent 60%
-        );
+    radial-gradient(
+        circle at top,
+        rgba(156,199,255,0.18),
+        transparent 60%
+    );
 }
 
-
-/* =================================
-   MIDNIGHT BLUE VINTAGE LIBRARY
-================================= */
+/* ==========================================
+   AUTHOR LIBRARY
+========================================== */
 
 .author-library {
-    width: min(100%, 1250px);
+    width: min(100%,1250px);
     margin: 10px auto 55px;
-    padding: 28px 22px 35px;
+    padding: 35px 25px 35px;
 
     background:
-        radial-gradient(
-            ellipse at top,
-            #192d59 0%,
-            #0b1736 55%,
-            #050c20 100%
-        );
+    radial-gradient(
+        ellipse at top,
+        #192d59 0%,
+        #0b1736 55%,
+        #050c20 100%
+    );
 
     border: 8px ridge #647ba8;
     border-radius: 8px;
@@ -198,9 +184,7 @@ header {
     font-size: clamp(1.2rem,3vw,2rem);
     text-align: center;
     margin-bottom: 12px;
-
-    text-shadow:
-        0 0 12px rgba(156,199,255,0.5);
+    text-shadow: 0 0 12px rgba(156,199,255,0.5);
 }
 
 .library-subheading {
@@ -208,388 +192,118 @@ header {
     font-family: "Cormorant Garamond", serif;
     font-size: 1.25rem;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     font-style: italic;
 }
 
-/* SHELVES */
+/* BOOKSHELF */
 
 .bookshelf {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: center;
+    gap: 0 9px;
 
-    gap: 0 13px;
-
-    padding: 15px 10px 0;
+    padding: 20px 12px 0;
 
     background:
-        repeating-linear-gradient(
-            to bottom,
-            transparent 0,
-            transparent 270px,
-            #8195bc 270px,
-            #344a75 281px,
-            #111f40 289px,
-            transparent 295px
-        );
+    repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 285px,
+        #b28b58 285px,
+        #80552e 292px,
+        #34251d 300px,
+        transparent 307px
+    );
 }
 
-/* BOOK SPINES */
+/* ==========================================
+   REALISTIC WHIMSICAL BOOK SPINES
+========================================== */
 
 .author-book {
+
+    --book-colour: #663b50;
+    --book-light: #a16b7d;
+    --book-dark: #351d30;
+    --book-gold: #d5b77c;
+
     position: relative;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 72px;
+    flex: 0 0 auto;
+
+    width: 69px;
     height: 245px;
 
     margin-bottom: 45px;
 
     text-decoration: none;
-    color: #eaf0ff;
+    color: #fff2d5;
 
-    border-radius: 4px 7px 7px 4px;
+    overflow: hidden;
 
-    border-left: 5px solid rgba(0,0,0,0.45);
+    border-radius: 3px 6px 6px 3px;
+
+    border-left: 5px solid var(--book-dark);
     border-right: 2px solid rgba(255,255,255,0.18);
-
-    box-shadow:
-        4px 5px 8px rgba(0,0,0,0.7),
-        inset 3px 0 5px rgba(255,255,255,0.12),
-        inset -4px 0 5px rgba(0,0,0,0.35);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-
-    overflow: hidden;
-}
-
-/* =================================
-   WHIMSICAL ENCHANTED BOOK SPINES
-================================= */
-
-/* More elaborate spine detailing */
-
-.author-book {
-    border-radius: 5px 9px 9px 5px;
-
-    border-left: 6px solid rgba(0,0,0,0.45);
-
-    box-shadow:
-        4px 6px 10px rgba(0,0,0,0.65),
-        inset 2px 0 5px rgba(255,255,255,0.2),
-        inset -5px 0 8px rgba(0,0,0,0.35),
-        0 0 4px rgba(175,205,255,0.15);
-}
-
-/* Ornate silver borders */
-
-.author-book::before {
-    content: "✧";
-    position: absolute;
-    inset: 8px 5px;
-
-    border-top: 2px solid #bfcfea;
-    border-bottom: 2px solid #bfcfea;
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-
-    color: #e4eaff;
-    font-size: 15px;
-
-    pointer-events: none;
-}
-
-/* Decorative celestial details */
-
-.author-book::after {
-    content: "☾";
-    position: absolute;
-
-    top: 14px;
-    left: 0;
-    right: 0;
-
-    text-align: center;
-
-    color: #e6eaff;
-    font-size: 17px;
-
-    text-shadow:
-        0 0 6px rgba(210,225,255,0.8);
-
-    pointer-events: none;
-}
-
-/* Elegant lettering */
-
-.author-book span {
-    font-size: 0.76rem;
-    letter-spacing: 1.2px;
-
-    color: #fff7e6;
-
-    text-shadow:
-        0 0 4px rgba(255,255,255,0.25),
-        1px 2px 3px #000;
-}
-
-/* Magical hover */
-
-.author-book:hover {
-    transform: translateY(-15px) rotate(-3deg);
-
-    box-shadow:
-        0 14px 20px rgba(0,0,0,0.7),
-        0 0 12px rgba(175,205,255,0.65),
-        0 0 25px rgba(120,160,255,0.3);
-}
-
-/* Decorative little stars around the bookcase */
-
-.library-footer::before {
-    content: "✦  ☽  ✧  ";
-    color: #c9d9ff;
-}
-
-.library-footer::after {
-    content: "  ✧  ☾  ✦";
-    color: #c9d9ff;
-}
-
-/* COLOURED BOOK SPINES */
-
-.author-book:nth-child(6n+1) {
-    background: linear-gradient(90deg,#350e25,#702442,#42142d);
-}
-
-.author-book:nth-child(6n+2) {
-    background: linear-gradient(90deg,#102b39,#23546b,#153747);
-}
-
-.author-book:nth-child(6n+3) {
-    background: linear-gradient(90deg,#101b40,#293f78,#14234c);
-}
-
-.author-book:nth-child(6n+4) {
-    background: linear-gradient(90deg,#172c27,#285b4b,#19392e);
-}
-
-.author-book:nth-child(6n+5) {
-    background: linear-gradient(90deg,#302044,#5c4174,#38264e);
-}
-
-.author-book:nth-child(6n) {
-    background: linear-gradient(90deg,#30394c,#566781,#343e52);
-}
-
-/* VARYING BOOK HEIGHTS */
-
-.author-book:nth-child(4n+1) {
-    height: 225px;
-}
-
-.author-book:nth-child(4n+2) {
-    height: 250px;
-}
-
-.author-book:nth-child(4n+3) {
-    height: 235px;
-}
-
-.author-book:nth-child(4n) {
-    height: 260px;
-}
-
-/* SILVER SPINE DECORATIONS */
-
-.author-book::before {
-    content: "";
-    position: absolute;
-    inset: 9px 6px;
-
-    border-top: 2px solid rgba(207,222,255,0.85);
-    border-bottom: 2px solid rgba(207,222,255,0.85);
-
-    pointer-events: none;
-}
-
-.author-book::after {
-    content: "✦";
-    position: absolute;
-    top: 14px;
-    left: 0;
-    right: 0;
-
-    text-align: center;
-    color: #e0eaff;
-    font-size: 12px;
-
-    pointer-events: none;
-}
-
-/* AUTHOR NAMES */
-
-.author-book span {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-
-    font-family: "Cinzel Decorative", serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-
-    color: #f0f4ff;
-    text-shadow: 1px 2px 3px #000;
-
-    padding: 28px 0;
-
-    max-height: 100%;
-    overflow: hidden;
-    text-align: center;
-}
-
-/* HOVER */
-
-.author-book:hover {
-    transform: translateY(-13px) rotate(-2deg);
-    z-index: 5;
-
-    box-shadow:
-        0 12px 18px rgba(0,0,0,0.7),
-        0 0 18px rgba(156,199,255,0.45);
-}
-
-/* SILVER BOOKCASE BASE */
-
-.library-base {
-    height: 18px;
-    margin-top: -45px;
 
     background:
         linear-gradient(
-            180deg,
-            #c4d1e8,
-            #647ba8,
-            #1b2b4e
+            90deg,
+            var(--book-dark) 0%,
+            var(--book-colour) 13%,
+            var(--book-light) 42%,
+            var(--book-colour) 77%,
+            var(--book-dark) 100%
         );
 
-    border: 2px solid #aabbdc;
-
     box-shadow:
-        0 8px 12px rgba(0,0,0,0.7);
+        3px 5px 7px rgba(0,0,0,0.65),
+        inset 3px 0 5px rgba(255,255,255,0.17),
+        inset -5px 0 7px rgba(0,0,0,0.4);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-.library-footer {
-    text-align: center;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.1rem;
-    color: #dce7ff;
-    margin-top: 25px;
-    font-style: italic;
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    .author-library {
-        padding: 20px 10px 25px;
-    }
-
-    .bookshelf {
-        gap: 0 8px;
-        padding: 10px 4px 0;
-    }
-
-    .author-book {
-        width: 51px;
-        height: 205px;
-        margin-bottom: 45px;
-    }
-
-    .author-book span {
-        font-size: 0.57rem;
-        letter-spacing: 0;
-    }
-
-}
-
-/* Book spine colours */
-
-.author-book:nth-child(6n+1) {
-    background: linear-gradient(90deg,#3d111b,#812b38,#4b1721);
-}
-
-.author-book:nth-child(6n+2) {
-    background: linear-gradient(90deg,#153b2b,#286348,#173b2b);
-}
-
-.author-book:nth-child(6n+3) {
-    background: linear-gradient(90deg,#17234c,#344e87,#19264e);
-}
-
-.author-book:nth-child(6n+4) {
-    background: linear-gradient(90deg,#492515,#89502b,#492515);
-}
-
-.author-book:nth-child(6n+5) {
-    background: linear-gradient(90deg,#382047,#704b83,#392047);
-}
-
-.author-book:nth-child(6n) {
-    background: linear-gradient(90deg,#665020,#a18138,#665020);
-}
-
-/* Vary book heights */
-
-.author-book:nth-child(4n+1) {
-    height: 225px;
-}
-
-.author-book:nth-child(4n+2) {
-    height: 250px;
-}
-
-.author-book:nth-child(4n+3) {
-    height: 235px;
-}
-
-.author-book:nth-child(4n) {
-    height: 260px;
-}
-
-/* Gold decorative borders */
+/* Subtle linen / leather texture */
 
 .author-book::before {
     content: "";
     position: absolute;
-    inset: 9px 6px;
+    inset: 7px 5px;
 
-    border-top: 2px solid rgba(226,190,119,0.85);
-    border-bottom: 2px solid rgba(226,190,119,0.85);
+    border-top: 1px solid var(--book-gold);
+    border-bottom: 1px solid var(--book-gold);
+
+    opacity: 0.8;
 
     pointer-events: none;
 }
 
+/* Individual decorative ornament */
+
 .author-book::after {
     content: "✦";
     position: absolute;
+
     top: 14px;
     left: 0;
     right: 0;
 
     text-align: center;
-    color: #e6c58b;
-    font-size: 12px;
+
+    color: var(--book-gold);
+    font-size: 15px;
+
+    text-shadow: 0 0 5px rgba(255,225,170,0.5);
 
     pointer-events: none;
 }
@@ -597,33 +311,260 @@ header {
 /* Author names */
 
 .author-book span {
+    position: relative;
+    z-index: 2;
+
     writing-mode: vertical-rl;
     text-orientation: mixed;
 
-    font-family: "Cinzel Decorative", serif;
-    font-size: 0.75rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 0.91rem;
     font-weight: 700;
+
     letter-spacing: 1px;
 
-    color: #fff0c8;
-    text-shadow: 1px 2px 3px #000;
+    color: #fff3d9;
 
-    padding: 28px 0;
+    text-shadow:
+        1px 2px 3px rgba(0,0,0,0.8);
+
+    padding: 35px 0 32px;
 
     max-height: 100%;
     overflow: hidden;
     text-align: center;
 }
 
-/* Hover effect */
+/* Decorative central spine emblem */
+
+.book-decoration {
+    position: absolute;
+    z-index: 1;
+
+    bottom: 14px;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    font-size: 13px;
+    color: var(--book-gold);
+
+    pointer-events: none;
+}
+
+/* Varying book widths */
+
+.author-book:nth-child(5n+1) {
+    width: 76px;
+}
+
+.author-book:nth-child(5n+2) {
+    width: 59px;
+}
+
+.author-book:nth-child(5n+3) {
+    width: 83px;
+}
+
+.author-book:nth-child(5n+4) {
+    width: 66px;
+}
+
+.author-book:nth-child(5n) {
+    width: 72px;
+}
+
+/* Varying heights */
+
+.author-book:nth-child(4n+1) {
+    height: 225px;
+}
+
+.author-book:nth-child(4n+2) {
+    height: 250px;
+}
+
+.author-book:nth-child(4n+3) {
+    height: 238px;
+}
+
+.author-book:nth-child(4n) {
+    height: 265px;
+}
+
+/* ==========================================
+   INDIVIDUAL BOOK COLOURS AND FINISHES
+========================================== */
+
+/* Burgundy leather */
+
+.author-book:nth-child(6n+1) {
+    --book-dark: #351522;
+    --book-colour: #762c43;
+    --book-light: #a95868;
+    --book-gold: #e1c28b;
+
+    background:
+    linear-gradient(90deg,
+        #351522,
+        #762c43 25%,
+        #a95868 48%,
+        #762c43 78%,
+        #351522);
+}
+
+/* Sage green linen */
+
+.author-book:nth-child(6n+2) {
+    --book-dark: #18372b;
+    --book-colour: #476d54;
+    --book-light: #789478;
+    --book-gold: #e4d0a0;
+
+    background:
+    repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        rgba(255,255,255,0.025) 1px,
+        transparent 2px
+    ),
+    linear-gradient(90deg,
+        #18372b,
+        #476d54 30%,
+        #789478 50%,
+        #476d54 80%,
+        #18372b);
+}
+
+/* Midnight blue */
+
+.author-book:nth-child(6n+3) {
+    --book-dark: #101b38;
+    --book-colour: #293f72;
+    --book-light: #526b9b;
+    --book-gold: #e2c58e;
+
+    background:
+    linear-gradient(90deg,
+        #101b38,
+        #293f72 25%,
+        #526b9b 48%,
+        #293f72 78%,
+        #101b38);
+}
+
+/* Antique rose */
+
+.author-book:nth-child(6n+4) {
+    --book-dark: #512c38;
+    --book-colour: #a15e70;
+    --book-light: #c38c96;
+    --book-gold: #f1d7ac;
+
+    background:
+    linear-gradient(90deg,
+        #512c38,
+        #a15e70 25%,
+        #c38c96 48%,
+        #a15e70 78%,
+        #512c38);
+}
+
+/* Plum and violet */
+
+.author-book:nth-child(6n+5) {
+    --book-dark: #33203d;
+    --book-colour: #674773;
+    --book-light: #96729b;
+    --book-gold: #e5cb9a;
+
+    background:
+    linear-gradient(90deg,
+        #33203d,
+        #674773 25%,
+        #96729b 48%,
+        #674773 78%,
+        #33203d);
+}
+
+/* Antique ochre */
+
+.author-book:nth-child(6n) {
+    --book-dark: #51401e;
+    --book-colour: #94723b;
+    --book-light: #bd9956;
+    --book-gold: #f5dfad;
+
+    background:
+    linear-gradient(90deg,
+        #51401e,
+        #94723b 25%,
+        #bd9956 48%,
+        #94723b 78%,
+        #51401e);
+}
+
+/* Different decorative patterns */
+
+.author-book:nth-child(3n+1)::before {
+    border: 1px solid var(--book-gold);
+    inset: 9px 6px;
+}
+
+.author-book:nth-child(3n+2)::before {
+    border-top: 3px double var(--book-gold);
+    border-bottom: 3px double var(--book-gold);
+    inset: 12px 5px;
+}
+
+.author-book:nth-child(3n)::before {
+    border-top: 2px solid var(--book-gold);
+    border-bottom: 2px solid var(--book-gold);
+    inset: 7px 9px;
+}
+
+/* Different ornaments */
+
+.author-book:nth-child(4n+1)::after {
+    content: "✦";
+}
+
+.author-book:nth-child(4n+2)::after {
+    content: "❧";
+}
+
+.author-book:nth-child(4n+3)::after {
+    content: "❋";
+}
+
+.author-book:nth-child(4n)::after {
+    content: "☾";
+}
+
+/* Slightly different spine shapes */
+
+.author-book:nth-child(3n+1) {
+    border-radius: 5px 8px 7px 3px;
+}
+
+.author-book:nth-child(3n+2) {
+    border-radius: 2px 5px 5px 2px;
+}
+
+.author-book:nth-child(3n) {
+    border-radius: 7px 9px 8px 3px;
+}
+
+/* Hover */
 
 .author-book:hover {
     transform: translateY(-13px) rotate(-2deg);
     z-index: 5;
 
     box-shadow:
-        0 12px 18px rgba(0,0,0,0.7),
-        0 0 15px rgba(226,190,119,0.4);
+        0 13px 20px rgba(0,0,0,0.7),
+        0 0 15px rgba(226,190,119,0.45);
 }
 
 .author-book:focus-visible {
@@ -631,19 +572,19 @@ header {
     outline-offset: 4px;
 }
 
-/* Shelf decorative base */
+/* BOOKSHELF BASE */
 
 .library-base {
     height: 18px;
     margin-top: -45px;
 
     background:
-        linear-gradient(
-            180deg,
-            #d0a365,
-            #80512d,
-            #392214
-        );
+    linear-gradient(
+        180deg,
+        #d0a365,
+        #80512d,
+        #392214
+    );
 
     border: 2px solid #c79b5d;
 
@@ -660,9 +601,15 @@ header {
     font-style: italic;
 }
 
-/* =================================
-   HERO
-================================= */
+.library-footer::before {
+    content: "✦  ☽  ✧  ";
+}
+
+.library-footer::after {
+    content: "  ✧  ☾  ✦";
+}
+
+/* HERO */
 
 .hero h1 {
     font-family: "Cinzel Decorative", serif;
@@ -670,9 +617,7 @@ header {
     line-height: 1.2;
     margin-bottom: 20px;
     color: var(--magic);
-
-    text-shadow:
-        0 0 30px rgba(156,199,255,0.25);
+    text-shadow: 0 0 30px rgba(156,199,255,0.25);
 }
 
 .hero h2 {
@@ -698,9 +643,7 @@ header {
     height: 40px;
 }
 
-/* =================================
-   BUTTONS
-================================= */
+/* BUTTONS */
 
 .btn {
     display: inline-block;
@@ -726,9 +669,7 @@ header {
     transform: translateY(-3px);
 }
 
-/* =================================
-   SECTIONS
-================================= */
+/* SECTIONS */
 
 section {
     text-align: center;
@@ -763,7 +704,7 @@ section.show {
 }
 
 section::before {
-    content: "· ☽ ✧ ☾ · ✦ ✧ ✦ ✧ ✦ · ☽ ✧ ☾ · ✦ ✧ ✦ ✧ ✦ ·";
+    content: "· ☽ ✧ ☾ · ✦ ✧ ✦ ✧ ✦ · ☽ ✧ ☾ ·";
 
     position: absolute;
     top: 0;
@@ -782,7 +723,6 @@ section::before {
 }
 
 section h2 {
-    text-align: center;
     font-family: "Cinzel Decorative", serif;
     font-size: clamp(1.8rem,4vw,3rem);
     margin-bottom: 25px;
@@ -794,14 +734,11 @@ section p {
     margin-bottom: 15px;
 }
 
-/* =================================
-   EVENT CARDS
-================================= */
+/* EVENT CARDS */
 
 .event-grid {
     display: grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
     gap: 25px;
 }
 
@@ -826,7 +763,6 @@ section p {
 .event-card .icon {
     width: 70px;
     height: 70px;
-
     margin: 0 auto 20px;
 
     display: flex;
@@ -860,9 +796,7 @@ section p {
     color: white;
 }
 
-/* =================================
-   FOOTER
-================================= */
+/* FOOTER */
 
 footer {
     text-align: center;
@@ -870,14 +804,11 @@ footer {
     color: var(--muted);
 }
 
-/* =================================
-   MOBILE NAVIGATION
-================================= */
+/* MOBILE */
 
 @media (max-width: 768px) {
 
     .nav-container {
-        display: flex;
         flex-direction: column;
         align-items: center;
         padding: 15px;
@@ -906,9 +837,6 @@ footer {
         padding: 10px 25px;
 
         font-family: "Cinzel Decorative", serif;
-        font-size: 0.9rem;
-        font-weight: bold;
-
         cursor: pointer;
     }
 
@@ -916,15 +844,10 @@ footer {
         display: none;
         flex-direction: column;
         align-items: center;
-
         width: 100%;
         gap: 0;
-
         padding: 10px 0;
-        margin: 0;
-
         background: var(--midnight);
-        border-top: 1px solid rgba(255,255,255,0.25);
     }
 
     nav ul.active {
@@ -939,39 +862,50 @@ footer {
     nav ul li a {
         display: block;
         padding: 13px 10px;
-        font-size: 0.9rem;
     }
 
     nav li:last-child a {
         display: inline-block;
         margin: 10px auto;
-        padding: 10px 25px;
-        background: white;
-        color: var(--night);
-        border-radius: 25px;
     }
-
 }
 
-/* =================================
-   MOBILE BOOKSHELF
-================================= */
+/* MOBILE BOOKSHELF */
 
 @media (max-width: 600px) {
 
     .author-library {
-        padding: 20px 10px 25px;
+        padding: 20px 8px 25px;
     }
 
     .bookshelf {
-        gap: 0 8px;
-        padding: 10px 4px 0;
+        gap: 0 5px;
+        padding: 10px 2px 0;
     }
 
     .author-book {
-        width: 51px;
-        height: 205px;
+        width: 48px;
         margin-bottom: 45px;
+    }
+
+    .author-book:nth-child(5n+1) {
+        width: 53px;
+    }
+
+    .author-book:nth-child(5n+2) {
+        width: 43px;
+    }
+
+    .author-book:nth-child(5n+3) {
+        width: 56px;
+    }
+
+    .author-book:nth-child(5n+4) {
+        width: 47px;
+    }
+
+    .author-book:nth-child(5n) {
+        width: 50px;
     }
 
     .author-book:nth-child(4n+1) {
@@ -991,8 +925,8 @@ footer {
     }
 
     .author-book span {
-        font-size: 0.57rem;
-        letter-spacing: 0;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
     }
 
     .library-heading {
@@ -1002,12 +936,9 @@ footer {
     .library-subheading {
         font-size: 1rem;
     }
-
 }
 
-/* =================================
-   ACCESSIBILITY
-================================= */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1023,7 +954,6 @@ footer {
         opacity: 1;
         transform: none;
     }
-
 }
 
 </style>
@@ -1033,9 +963,7 @@ footer {
 
 <div class="stars" id="stars"></div>
 
-<!-- =================================
-     NAVIGATION
-================================= -->
+<!-- NAVIGATION -->
 
 <nav>
     <div class="nav-container">
@@ -1056,7 +984,6 @@ footer {
         </button>
 
         <ul id="navMenu">
-
             <li><a href="#about">About</a></li>
             <li><a href="Guests.html">Guests</a></li>
             <li><a href="Policies.html">Policies</a></li>
@@ -1088,15 +1015,12 @@ footer {
                     Get Tickets
                 </a>
             </li>
-
         </ul>
 
     </div>
 </nav>
 
-<!-- =================================
-     HEADER AND AUTHOR BOOKSHELF
-================================= -->
+<!-- HEADER AND AUTHOR BOOKSHELF -->
 
 <header>
 
@@ -1111,7 +1035,6 @@ footer {
         </p>
 
         <div class="bookshelf" id="authorBookshelf">
-            <!-- Author book spines are generated below -->
         </div>
 
         <div class="library-base"></div>
@@ -1136,17 +1059,13 @@ footer {
         <br>
 
         <p>We heard the bookish community loud and clear.</p>
-
         <p>We are bringing a fiction book event to the South Coast.</p>
 
         <br>
 
         <p><span>📅</span> 25 September 2027</p>
-
         <p><span>🕒</span> Doors open VIP: 10:00 - 19:00</p>
-
         <p><span>🕒</span> Doors open General: 11:30 - 19:00</p>
-
         <p><span>📍</span> Brighton Hilton Metropole, Brighton</p>
 
         <a href="https://www.eventbrite.co.uk/e/lost-in-pages-brightons-newest-book-event-tickets-1992957687091?utm_experiment=test_share_listing&aff=ebdsshios&sg=f85606848e1d295860e7303a016f1e3bd4de5b39f76db082bb221ff8005ed2113809f6419407b0cc4c11094717f557bc4c7b17e6ae2e0d27d760214a00aef84d4b33c8b72dee2f256543bce8dd98"
@@ -1168,9 +1087,7 @@ footer {
 
 </header>
 
-<!-- =================================
-     ABOUT
-================================= -->
+<!-- ABOUT -->
 
 <section id="about">
 
@@ -1194,9 +1111,7 @@ footer {
 
 </section>
 
-<!-- =================================
-     EVENT
-================================= -->
+<!-- EVENT -->
 
 <section id="event" style="background:#f5f7fb;">
 
@@ -1267,9 +1182,7 @@ footer {
 
 </section>
 
-<!-- =================================
-     NEWSLETTER
-================================= -->
+<!-- NEWSLETTER -->
 
 <section id="newsletter">
 
@@ -1289,9 +1202,7 @@ footer {
 
 </section>
 
-<!-- =================================
-     CONTACT
-================================= -->
+<!-- CONTACT -->
 
 <section id="contact">
 
@@ -1324,9 +1235,7 @@ footer {
 
 </section>
 
-<!-- =================================
-     FOOTER
-================================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1336,20 +1245,11 @@ footer {
 
 </footer>
 
-<!-- =================================
-     JAVASCRIPT
-================================= -->
+<!-- JAVASCRIPT -->
 
 <script>
 
-/* =================================
-   AUTHOR BOOK DATA
-
-   Add new authors here.
-   Each author needs:
-   name: Author name
-   link: Instagram profile
-================================= */
+/* AUTHOR DATA */
 
 const authors = [
 
@@ -1361,18 +1261,14 @@ const authors = [
         name: "Ciara Delahunt",
         link: "https://www.instagram.com/ciaradelahunt/?hl=en-gb"
     },
-    
     {
         name: "Georgia Leighton",
         link: "https://www.instagram.com/georgialeightonauthor/?hl=en-gb"
     },
-
     {
         name: "Imani Erriu",
         link: "https://www.instagram.com/authorimanierriu/?hl=en-gb"
     },
-    
-    
     {
         name: "Patricia Prior",
         link: "https://www.instagram.com/authorpatriciaprior/"
@@ -1421,7 +1317,6 @@ const authors = [
         name: "Venetia Constantine",
         link: "https://www.instagram.com/venetiaconstantine/"
     },
-    
     {
         name: "Z.R.R. Beatham",
         link: "https://www.instagram.com/zaynewrites_/"
@@ -1429,13 +1324,12 @@ const authors = [
 
 ];
 
-/* =================================
-   CREATE THE BOOK SPINES
-================================= */
+
+/* CREATE BOOK SPINES */
 
 const bookshelf = document.getElementById("authorBookshelf");
 
-authors.forEach(author => {
+authors.forEach((author, index) => {
 
     const book = document.createElement("a");
 
@@ -1456,15 +1350,34 @@ authors.forEach(author => {
 
     name.textContent = author.name;
 
+    const decoration = document.createElement("div");
+
+    decoration.className = "book-decoration";
+
+    const decorations = [
+        "❧",
+        "✧",
+        "❋",
+        "✦",
+        "☾",
+        "❀",
+        "✺",
+        "❦"
+    ];
+
+    decoration.textContent =
+        decorations[index % decorations.length];
+
     book.appendChild(name);
+
+    book.appendChild(decoration);
 
     bookshelf.appendChild(book);
 
 });
 
-/* =================================
-   FLOATING STARS
-================================= */
+
+/* FLOATING STARS */
 
 const stars = document.getElementById("stars");
 
@@ -1487,9 +1400,8 @@ for (let i = 0; i < 60; i++) {
 
 }
 
-/* =================================
-   SECTION REVEAL
-================================= */
+
+/* SECTION REVEAL */
 
 const sections = document.querySelectorAll("section");
 
@@ -1521,9 +1433,8 @@ if ("IntersectionObserver" in window) {
 
 }
 
-/* =================================
-   MOBILE DROPDOWN MENU
-================================= */
+
+/* MOBILE MENU */
 
 const menuToggle = document.getElementById("menuToggle");
 
@@ -1546,7 +1457,8 @@ menuToggle.addEventListener("click", function () {
 
 });
 
-/* Close menu when a link is selected */
+
+/* CLOSE MENU WHEN LINK SELECTED */
 
 navMenu.querySelectorAll("a").forEach(link => {
 
