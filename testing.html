@@ -1,4 +1,4 @@
-
+How do i make the shelf solid with no cast shadow: 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,13 +173,15 @@ header {
     border: 8px ridge #647ba8;
     border-radius: 8px;
 
-
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.8),
+        inset 0 0 35px rgba(0,0,0,0.8);
 }
 
 .library-heading {
     font-family: "Cinzel Decorative", serif;
     color: #e5edff;
-    font-size: clamp(2rem,3vw,2rem);
+    font-size: clamp(1.2rem,3vw,2rem);
     text-align: center;
     margin-bottom: 12px;
     text-shadow: 0 0 12px rgba(156,199,255,0.5);
@@ -261,13 +263,10 @@ header {
             var(--book-dark) 100%
         );
 
-    .author-book {
-    background-blend-mode: normal;
-
-    filter: saturate(1.1);
-
-    outline: 1px solid rgba(255,220,160,0.12);
-}
+    box-shadow:
+        3px 5px 7px rgba(0,0,0,0.65),
+        inset 3px 0 5px rgba(255,255,255,0.17),
+        inset -5px 0 7px rgba(0,0,0,0.4);
 
     transition:
         transform 0.35s ease,
@@ -279,38 +278,32 @@ header {
 .author-book::before {
     content: "";
     position: absolute;
-    inset: 8px 6px;
+    inset: 7px 5px;
 
-    border: 1px solid var(--book-gold);
-    border-radius: 3px;
+    border-top: 1px solid var(--book-gold);
+    border-bottom: 1px solid var(--book-gold);
 
-    opacity: 0.9;
+    opacity: 0.8;
 
     pointer-events: none;
-
-    box-shadow:
-        inset 0 0 5px rgba(255,220,150,0.2),
-        0 0 3px rgba(255,220,150,0.2);
 }
-
 
 /* Individual decorative ornament */
 
 .author-book::after {
-    content: "✧ ❋ ✧";
-
+    content: "✦";
     position: absolute;
-    top: 12px;
+
+    top: 14px;
     left: 0;
     right: 0;
 
     text-align: center;
 
     color: var(--book-gold);
-    font-size: 13px;
+    font-size: 15px;
 
-    text-shadow:
-        0 0 4px rgba(255,225,170,0.7);
+    text-shadow: 0 0 5px rgba(255,225,170,0.5);
 
     pointer-events: none;
 }
@@ -325,7 +318,7 @@ header {
     text-orientation: mixed;
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.2rem;
+    font-size: 0.91rem;
     font-weight: 700;
 
     letter-spacing: 1px;
@@ -894,10 +887,6 @@ footer {
         width: 48px;
         margin-bottom: 45px;
     }
-
-    
-
-
 
     .author-book:nth-child(5n+1) {
         width: 53px;
